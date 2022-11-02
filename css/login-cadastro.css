@@ -4,16 +4,19 @@ body {
 
 header {
   position: fixed;
+  z-index: 9999;
 }
 
 .principal {
+  width: 100%;
   height: 100vh;
 }
 
 .principal .container {
   width: 100%;
-
+  display: flex;
 }
+
 .content-text {
   display: flex;
   align-items: center;
@@ -29,11 +32,13 @@ header {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  transition: 1s;
 }
 
-.cadastro{
-  height: 500px!important;
+.cadastro {
+  height: 500px !important;
 }
+
 .content-text form h2 {
   font-size: 28px;
   text-align: center;
@@ -51,16 +56,15 @@ header {
   width: 62px;
   border-radius: 50px;
   z-index: 0;
- transform: translate(1px,1px);
+  transform: translate(1px, 1px);
   display: flex;
   justify-content: center;
- align-items: center;
- background-color: #019974;
+  align-items: center;
+  background-color: #019974;
 }
-
 .content-text .input label img {
   width: 20px;
-display: block;
+  display: block;
 }
 
 .content-text .input input {
@@ -70,45 +74,82 @@ display: block;
   font-size: 20px;
   padding: 10px 30px 10px 80px;
   border-radius: 50px;
-  border-left: none ;
-}
-.content-img {
-  flex: 1;
-  height: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-
-}
-.content-img .text {
-  flex: 2;
-  padding: 0 10px;
+  border-left: none;
 }
 
-.text>p{
-  color: #fff;
+.text {
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  bottom: 30%;
+  right: 35%;
+  color: #222;
+  z-index: 9999;
+  width: 300px;
+  transition: 0.5s;
 }
-.text p {
+.text2 {
+  text-align: center;
+  width: 300px;
+  z-index: 9999;
+  position: absolute;
+  bottom: 30%;
+  right: 40%;
+  color: #222;
+  transition: 0.5s;
+}
+.active .text {
+  opacity: 100%;
+}
+.active .text2 {
+  opacity: 0;
+  
+}
+.active .img:nth-child(1) {
+  opacity: 0;
+}
+
+.text p,
+.text2 p {
   font-size: 1.5em;
+  color: #fff;
   margin-bottom: 30px;
 }
 
-.text button{
+.text button,
+.text2 button {
   background-color: #222;
   color: #fff;
 }
 .img {
-  flex: 1;
-  transform: translate(-50px, 50px);
+  position: absolute;
+  z-index: 99;
 }
+.img:nth-child(1) {
+  opacity: 1;
+  transition: 1s;
+  transform: translate(-10vw, 120%);
+}
+
+.img:nth-child(2) {
+  transform: translate(60vw, 139%);
+  width: 400px;
+}
+
 .content-img .img img {
   width: 400px;
 }
+
 .bool {
+  transform: translate(60%, -90%);
   position: absolute;
-  width: 50%;
-  height: 1000px;
-  z-index: -999;
-  right: -10%;
+  width: 80%;
+  height: 1200px;
   border-radius: 50%;
   background-color: #019974;
+  transition: 3s;
+}
+
+.active {
+  transform: translate(-35%, -90%);
 }
