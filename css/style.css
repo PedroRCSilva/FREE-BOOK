@@ -109,7 +109,7 @@ header .container {
   font-size: 30px;
 }
 
-.content-text button {
+button {
   width: 200px;
   height: 49px;
   border-radius: 40px;
@@ -119,9 +119,10 @@ header .container {
   margin-right: 20px;
   cursor: pointer;
   transition: 0.5s;
+  color: #222 ;
 }
 
-.content-text button:hover {
+ button:hover {
   background-color: #006950;
   transition: 0.5s;
   color: #fff;
