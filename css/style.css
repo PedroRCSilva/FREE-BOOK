@@ -119,10 +119,10 @@ button {
   margin-right: 20px;
   cursor: pointer;
   transition: 0.5s;
-  color: #222 ;
+  color: #222;
 }
 
- button:hover {
+button:hover {
   background-color: #006950;
   transition: 0.5s;
   color: #fff;
@@ -225,15 +225,27 @@ button {
 
 }
 
+.session-carrossel>div {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  height: 100vh;
+}
+
+.session-carrossel>div::-webkit-scrollbar {
+  display: none;
+}
+
 .session-carrossel {
-  min-height: 100vh;
-  height: max-content;
   background-color: #000;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  flex-direction: column;
+}
 
-
+.group {
+  display: flex;
+  width: max-content;
 }
 
 .session-carrossel>h2 {
@@ -244,20 +256,23 @@ button {
 }
 
 .session-carrossel .container {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   column-gap: 30px;
   align-items: center;
-
-
+  width: 100vw !important;
+  margin: 0;
+  padding: 0 100px;
 }
+
+
 
 .content-text-carrossel {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   flex: 1 1 570px;
   height: 450px;
 }
@@ -294,11 +309,27 @@ button {
   color: #fff;
 }
 
+.session-carrossel .btn{
+  position: absolute;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  background-color: #006950;
+  font-size: 2em;
+  right: 10px;
+}
+
+.session-carrossel .btn:nth-child(2){
+  left: 10px;
+}
+
+
 .btn-carrossel {
   font-size: 6em;
   margin-left: 50px;
   color: #019974;
   cursor: pointer;
+
 }
 
 .book-write h2 {
