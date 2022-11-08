@@ -79,10 +79,10 @@ header {
 
 .text {
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   bottom: 30%;
-  right: 35%;
+  right: 40%;
   color: #222;
   z-index: 9999;
   width: 300px;
@@ -90,19 +90,20 @@ header {
 }
 .text2 {
   text-align: center;
+  opacity: 0;
   width: 300px;
   z-index: 9999;
   position: absolute;
   bottom: 30%;
-  right: 40%;
+  right: 30%;
   color: #222;
   transition: 0.5s;
 }
 .active .text {
-  opacity: 100%;
+  opacity: 0;
 }
 .active .text2 {
-  opacity: 0;
+  opacity: 1;
   
 }
 .active .img:nth-child(1) {
@@ -150,6 +151,7 @@ header {
   transition: 3s;
 }
 
-.active {
-  transform: translate(-35%, -90%);
-}
+
+
+
+ 

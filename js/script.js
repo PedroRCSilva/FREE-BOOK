@@ -1,43 +1,45 @@
-const formCadastro=document.querySelector(".cadastro");
-const formLogin = document.querySelector(".login");
-const boll = document.querySelector(".bool")
-const imgVector = document.querySelector(".img");
-const btn= document.querySelectorAll(".btn");
-const contentText= document.querySelector(".text");
-const div=document.querySelector(".principal .container")
-const img = document.querySelector(".content-img");
 const carrossel = document.querySelector(".session-carrossel div");
-const groupWidth = document.querySelector(".group");
-const btnCarrossel=document.querySelectorAll(".session-carrossel .btn");
-let validacao=true;
-var intervalCarrossel=setInterval(proximoCarrossel,3000);
+const btnCarrossel = document.querySelectorAll(".session-carrossel .btn");
+var intervalCarrossel = setInterval(() => {
+  if (validacao) {
+    proximoCarrossel();
+  } else {
+    anteriorCarrossel();
+  }
+}, 3000);
 
-
-for (key of btn){
-key.addEventListener("click",()=>{
-  boll.classList.toggle("active");
-})
-}
-
-
-
-
-function proximoCarrossel(){
-  if(carrossel.scrollWidth>carrossel.scrollLeft+1349&&validacao){
-    carrossel.scrollLeft+=carrossel.clientWidth+20;
+// FUNÇÕES CRIADAS PARA CARROSSEL NA PÁGINA HOME
+let validacao = true;
+function proximoCarrossel() {
+  if (carrossel.scrollWidth > carrossel.scrollLeft + 1349 && validacao) {
+    carrossel.scrollLeft += carrossel.clientWidth + 20;
   }
 }
 
-function anteriorCarrossel(){
-    carrossel.scrollLeft-=carrossel.clientWidth+20;
-    if(carrossel.scrollLeft==0){
-      validacao=true;
-    }
+function anteriorCarrossel() {
+  carrossel.scrollLeft -= carrossel.clientWidth + 20;
+  if (carrossel.scrollLeft == 0) {
+    validacao = true;
+  }
 }
 
+btnCarrossel[0].addEventListener("click", () => {
+  clearInterval(intervalCarrossel);
+  anteriorCarrossel();
+});
+btnCarrossel[1].addEventListener("click", () => {
+  clearInterval(intervalCarrossel);
+  proximoCarrossel();
+});
+//
 
-btnCarrossel[0].addEventListener("click",anteriorCarrossel);
-btnCarrossel[1].addEventListener("click",proximoCarrossel);
+function colorNavbar(){
+  
+const navbar= document.querySelector("header .container");
+  navbar.classList.toggle("active",scrollY>=20);
+ 
+}
 
-
-
+window.addEventListener("scroll",()=>{
+  colorNavbar()
+})
