@@ -3,10 +3,18 @@ body {
 }
 
 header {
+  background-color: #019974;
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
 }
 
+header .container{
+  border-radius: 50px;
+  padding: 0 20px;
+}
+header .container .logo, header .container a {
+  color: #fff;
+}
 .principal {
   width: 100%;
   height: 100vh;
@@ -152,6 +160,8 @@ header {
 }
 
 
-
+.active {
+  transform: translate(-35%, -90%);
+}
 
  
