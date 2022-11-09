@@ -39,7 +39,6 @@ header .container {
 header .container.active{
   background-color: #006950;
   transform: translateY(40px);
- 
   transition: 1s;
   border-radius: 40px;
   padding: 0 30px;
@@ -118,8 +117,6 @@ header .container.active{
   font-weight: 500;
 
 }
-
-
 
 .content-text p {
   font-size: 30px;

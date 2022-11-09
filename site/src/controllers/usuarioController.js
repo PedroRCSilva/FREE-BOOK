@@ -37,8 +37,10 @@ function entrar(req, res) {
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
+                    
                     console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); 
+                    // transforma JSON em String
 
                     if (resultado.length == 1) {
                         console.log(resultado);

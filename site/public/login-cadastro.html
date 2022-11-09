@@ -37,17 +37,17 @@
               <label>
                 <img src="img/user.png" alt="">
               </label>
-              <input type="email" name="" placeholder="Insira seu e-mail">
+              <input type="email" name="" placeholder="Insira seu e-mail" id="in_email_login">
 
             </div>
             <div class="input">
               <label>
                 <img src="img/passoword.png" alt="">
               </label>
-              <input type="password" name="" placeholder="Insira sua senha">
+              <input type="password" name="" placeholder="Insira sua senha" id="in_senha_login">
             </div>
           </div>
-          <button type="button">ENTRAR</button>
+          <button type="button" onclick="login()">ENTRAR</button>
         </form>
       </div>
 
@@ -59,19 +59,19 @@
               <label>
                 <img src="img/user.png" alt="">
               </label>
-              <input type="email" name="" placeholder="Insira seu nome">
+              <input type="email" name="" placeholder="Insira seu nome" id="in_nome">
             </div>
             <div class="input">
               <label>
                 <img src="img/passoword.png" alt="">
               </label>
-              <input type="email" name="" placeholder="Insira seu email">
+              <input type="email" name="" placeholder="Insira seu email" id="in_email">
             </div>
           <div class="input">
             <label>
               <img src="img/user.png" alt="">
             </label>
-            <input type="password" name="" placeholder="Crie um senha">
+            <input type="password" name="" placeholder="Crie um senha" id="in_senha">
           </div>
           <div class="input">
             <label>
@@ -80,7 +80,7 @@
             <input type="password" name="" placeholder="Confirme a sua senha">
           </div>
         </div>
-          <button type="button">CADASTRAR</button>
+          <button type="button" onclick="cadastrar()">CADASTRAR</button>
         
         </form>
       </div>
@@ -113,6 +113,69 @@
   </div>
 
   <script src="js/loginCadastro.js"></script>
+  <script>
+
+function cadastrar(){
+    var nomeVar=in_nome.value;
+    var emailVar=in_email.value;
+    var senhaVar=in_senha.value;
+
+fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                setTimeout(() => {
+                    window.location = "index.html";
+                }, 2000)
+                
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function login(){
+    var emailVar=in_email_login.value;
+    var senhaVar=in_senha_login.value;
+
+fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("resposta: ",resposta);
+
+            resposta.json().then(function(json){
+              console.log(JSON.stringify(json));
+            })
+
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+  </script>
 </body>
 
 </html>
