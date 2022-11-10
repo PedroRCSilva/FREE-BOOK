@@ -1,0 +1,236 @@
+@keyframes animation-right {
+  0%{
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100%{
+    opacity: 1;
+  }
+
+
+}
+
+@keyframes animation-left {
+  0%{
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes boll {
+  to{
+    transform: translate(-20px,20px);
+  }
+  from{
+    transform: translate(-200px,30px);
+  }
+  
+}
+body{
+  overflow: hidden;
+}
+.upload-progress {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.progress {
+  flex: 1;
+  background-color: #019974;
+  display: flex;
+  height: 100%;
+  row-gap: 50px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.progress h2 {
+  font-size: 2em;
+  color: #fff;
+}
+
+.etapas {
+  display: flex;
+  justify-content: space-between;
+  height: 45%;
+  flex-direction: column;
+}
+
+.info-book {
+  flex: 2;
+
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+}
+
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.circle img{
+  position: absolute;
+  width: 20px;
+}
+
+.circle.active{
+  background-color: #fff;
+  transition: 0.4s;
+  transition-delay: 0.1s;
+}
+
+.etapas .line-progress {
+transition: 0.5s;
+  display: block;
+  top: 30vh;
+  width: 5px;
+  height: 0;
+  background-color: #fff;
+  position: absolute;
+  transform: translate(23px, 40px);
+}
+
+
+.info-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 60px;
+}
+
+.form-step {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50%;
+
+}
+
+.info-book .logo {
+  font-size: 2em;
+  font-weight: bold;
+  color: #222;
+  display: flex;
+  margin-top: 90px;
+  align-items: center;
+}
+
+.campo {
+  display: none;
+  width: 90%;
+  text-align: center;
+
+}
+.boll{
+  background-color: #222;
+  width: 20%;
+  height: 40%;
+  position: absolute;
+  bottom: -200px;
+  right:300px;
+  z-index: -99;
+  border-radius: 50%;
+  animation: 10s boll alternate infinite;
+}
+.campo.active{
+  display: block;
+  animation: 1.2s animation-right alternate;
+ 
+}
+
+.campo label {
+  font-size: 1.5em;
+}
+
+.campo input {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 30px;
+  text-align: center;
+  border: 1px solid #019974;
+  margin-bottom: 20px;
+}
+
+.campo textarea {
+  padding: 10px;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 30px;
+  width: 80%;
+  border: 1px solid #019974;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+
+.campo input[type=file] {
+  display: none;
+}
+
+
+.campo .input-select {
+  cursor: pointer;
+  border: 1px solid black;
+  display: flex;
+  width: 80%;
+  height: 290px;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+.campo .input-select img {
+  margin-top: 10px;
+  width: 60px;
+}
+
+.bar-progress {
+
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+  bottom: 30px;
+  align-items: center;
+
+}
+
+.line {
+  width: 90px;
+  
+  border-radius: 20px;
+  border: 1px solid #019974;
+  height: 5px;
+}
+
+.line.active{
+  background-color: #019974;
+  transition: 0.5s;
+}

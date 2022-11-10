@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/upload-livro.css">
+  <title>Upload Livro</title>
+</head>
+
+<body>
+  
+
+  <section class="upload-progress">
+    <div class="progress">
+      <h2>PROGRESSO</h2>
+      <div class="etapas">
+        <div class="description">
+          <div class="line-progress"></div>
+          <div class="circle active"><img src="img/hit.png" alt=""></div>Inserir titulo do livro 
+        </div>
+
+        <div class="description">
+          <div class="circle"><img src="img/hit.png" alt=""></div>Inserir uma descrição do livro
+        </div>
+
+        <div class="description">
+          <div class="circle"><img src="img/hit.png" alt=""></div> Inserir capa do livro
+        </div>
+
+        <div class="description">
+          <div class="circle"><img src="img/hit.png" alt=""></div>Finalizar Publicação
+        </div>
+
+      </div>
+    </div>
+    <div class="info-book">
+      <div class="boll"></div>
+      <div class="logo">UPLOAD DO MEU LIVRO</div>
+
+      <div class="form-step">
+        <div class="campo active">
+          <label >Informe um titulo para seu livro</label>
+          <input type="text">
+
+          <button class="next">Continuar</button>
+        </div>
+
+        <div class="campo">
+          <label for="">Escreva uma descrição para seu livro</label>
+          <textarea type="text"></textarea>
+          <button class="prev">Voltar</button>
+          <button class="next">Continuar</button>
+          
+        </div> 
+
+        <div class="campo">
+          
+          <div class="input-select">
+            <label for="">Envie a capa do seu livro</label>
+            <img src="/public/img/bx_image-add.png" alt="">
+          </div>
+          <input type="file" id="image">
+          <button class="prev">Voltar</button>
+          <button class="next">Continuar</button>
+        </div>
+      
+        <div class="campo">
+          <label for="">Informe o link do PDF</label>
+          <input type="url" id="url">
+          <button class="prev">Voltar</button>
+          <button class="next">Publicar</button>
+        </div> 
+
+        <div class="bar-progress">
+          <div class="line active"></div>
+          <div class="line"></div> 
+          <div class="line"></div> 
+          <div class="line"></div> 
+        </div>
+    </div>
+    
+    </div>
+    
+  </section>
+  <script src="js/uploadLivro.js"></script>
+</body>
+
+</html>
