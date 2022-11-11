@@ -1,3 +1,15 @@
+@keyframes animation-right {
+  0%{
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100%{
+    opacity: 1;
+  }
+
+
+}
+
 body {
   overflow: hidden;
 }
@@ -39,17 +51,19 @@ header .container .logo, header .container a {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   transition: 1s;
 }
 
 .cadastro {
-  height: 500px !important;
+  display: flex;
+  align-items: center;
 }
 
 .content-text form h2 {
   font-size: 28px;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .content-text .input {
@@ -160,8 +174,22 @@ header .container .logo, header .container a {
 }
 
 
-.active {
+.bool.active {
   transform: translate(-35%, -90%);
 }
 
- 
+
+.etapa{
+  display: none;
+}
+
+.etapa.active{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: 1s animation-right alternate;
+}
+
+.btns{
+  display: flex;
+}

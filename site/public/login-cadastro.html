@@ -52,38 +52,71 @@
       </div>
 
       <div class="content-text">
-        <form action="" class="cadastro ">
+        <form class="cadastro">
           <h2>CADASTRO</h2>
-          <div class="campos">
+          <div class="etapa active ">
+            <div class="campos">
+              <div class="input">
+                <label>
+                  <img src="img/user.png" alt="">
+                </label>
+                <input type="email" name="" placeholder="Insira seu nome" id="in_nome">
+              </div>
+              <div class="input">
+                <label>
+                  <img src="img/passoword.png" alt="">
+                </label>
+                <input type="email" name="" placeholder="Insira seu sobrenome" id="in_sobrenome">
+              </div>
+            </div>
+            <button type="button" onclick="proximaEtapa()">PROXIMO</button>
+
+          </div>
+          <div class="etapa">
+            
             <div class="input">
               <label>
                 <img src="img/user.png" alt="">
               </label>
-              <input type="email" name="" placeholder="Insira seu nome" id="in_nome">
+              <input type="password" name="" placeholder="Insira sua senha" id="in_senha">
             </div>
+            
             <div class="input">
               <label>
-                <img src="img/passoword.png" alt="">
+                <img src="img/GIpassoword.png" alt="">
               </label>
-              <input type="email" name="" placeholder="Insira seu email" id="in_email">
+              <input type="password" name="" placeholder="Confirme sua senha">
             </div>
-          <div class="input">
-            <label>
-              <img src="img/user.png" alt="">
-            </label>
-            <input type="password" name="" placeholder="Crie um senha" id="in_senha">
+
+     
+         
+            
+            <div class="btns">
+              <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
+              <button type="button" onclick="proximaEtapa()">PRÓXIMA</button>
+            </div>
+
           </div>
-          <div class="input">
-            <label>
-              <img src="img/passoword.png" alt="">
-            </label>
-            <input type="password" name="" placeholder="Confirme a sua senha">
+
+          <div class="etapa">
+            
+            <div class="input">
+              <label>
+                <img src="img/user.png" alt="">
+              </label>
+              <input type="file" name=""  id="in_senha">
+            </div>
+            
+            <div class="btns">
+              <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
+              <button type="button" onclick="cadastrar()">CADASTRAR</button>
+            </div>
+
           </div>
-        </div>
-          <button type="button" onclick="cadastrar()">CADASTRAR</button>
-        
-        </form>
+
       </div>
+      </form>
+    </div>
 
 
     </div>
@@ -97,7 +130,7 @@
     <div class="img">
       <img src="img/cel-login.png"">
     </div>
-    <div class="text2">
+    <div class=" text2">
       <p>JÁ ENTRO ALGUMA VEZ NO UNIVERSO DA FREEBOOK ?
         <br>NÃO PERCA TEMPO !
       </p>
@@ -109,72 +142,94 @@
       <button class="btn">Cadastre-se</button>
     </div>
 
-    
+
   </div>
 
   <script src="js/loginCadastro.js"></script>
   <script>
 
-function cadastrar(){
-    var nomeVar=in_nome.value;
-    var emailVar=in_email.value;
-    var senhaVar=in_senha.value;
 
-fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
+    const stepEtapa = document.querySelectorAll(".etapa");
+    let contStep = 0;
 
-            console.log("resposta: ", resposta);
+    function proximaEtapa() {
+      if (contStep < stepEtapa.length - 1) {
+        contStep++;
+        stepEtapa[contStep - 1].classList.remove("active")
+        stepEtapa[contStep].classList.add("active");
+      }
+    }
 
-            if (resposta.ok) {
-                setTimeout(() => {
-                    window.location = "index.html";
-                }, 2000)
-                
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-}
+    function voltaEtapa() {
+      if (contStep >= 0) {
+        contStep--;
+        stepEtapa[contStep + 1].classList.remove("active");
+        stepEtapa[contStep].classList.add("active");
+      }
+    }
 
-function login(){
-    var emailVar=in_email_login.value;
-    var senhaVar=in_senha_login.value;
+    function cadastrar() {
+      var nomeVar = in_nome.value;
+      var emailVar = in_email.value;
+      var senhaVar = in_senha.value;
 
-fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("resposta: ",resposta);
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar
+        })
+      }).then(function (resposta) {
 
-            resposta.json().then(function(json){
-              console.log(JSON.stringify(json));
-            })
+        console.log("resposta: ", resposta);
 
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-}
+        if (resposta.ok) {
+          setTimeout(() => {
+            window.location = "index.html";
+          }, 2000)
+
+        } else {
+          throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+      }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+    }
+
+
+
+    function login() {
+      var emailVar = in_email_login.value;
+      var senhaVar = in_senha_login.value;
+
+      fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          emailServer: emailVar,
+          senhaServer: senhaVar
+        })
+      }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        resposta.json().then(function (json) {
+          console.log(JSON.stringify(json));
+        })
+
+      }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+    }
   </script>
 </body>
 
