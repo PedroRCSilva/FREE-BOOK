@@ -31,3 +31,4 @@ fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario)
 );
 
 
+SELECT * FROM USUARIO;

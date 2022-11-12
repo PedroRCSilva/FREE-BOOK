@@ -54,7 +54,7 @@
       <div class="content-text">
         <form class="cadastro">
           <h2>CADASTRO</h2>
-          <div class="etapa active ">
+          <div class="etapa active">
             <div class="campos">
               <div class="input">
                 <label>
@@ -72,25 +72,39 @@
             <button type="button" onclick="proximaEtapa()">PROXIMO</button>
 
           </div>
+
+
           <div class="etapa">
-            
+
+            <div class="input">
+              <label>
+                <img src="img/user.png" alt="">
+              </label>
+              <input type="email" name="" id="in_email" placeholder="Insira seu email">
+            </div>
+
+            <div class="btns">
+              <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
+              <button type="button" onclick="proximaEtapa()">PRÓXIMA</button>
+            </div>
+
+          </div>
+          <div class="etapa">
+
             <div class="input">
               <label>
                 <img src="img/user.png" alt="">
               </label>
               <input type="password" name="" placeholder="Insira sua senha" id="in_senha">
             </div>
-            
+
             <div class="input">
               <label>
-                <img src="img/GIpassoword.png" alt="">
+                <img src="img/passoword.png" alt="">
               </label>
-              <input type="password" name="" placeholder="Confirme sua senha">
+              <input type="password" name="" placeholder="Confirme sua senha" id="in_confSenha">
             </div>
 
-     
-         
-            
             <div class="btns">
               <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
               <button type="button" onclick="proximaEtapa()">PRÓXIMA</button>
@@ -99,20 +113,21 @@
           </div>
 
           <div class="etapa">
-            
+
             <div class="input">
               <label>
                 <img src="img/user.png" alt="">
               </label>
-              <input type="file" name=""  id="in_senha">
+              <input type="file" name=""id="in_img" onchange="verImagem()">
             </div>
-            
+
             <div class="btns">
               <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
               <button type="button" onclick="cadastrar()">CADASTRAR</button>
             </div>
 
           </div>
+
 
       </div>
       </form>
@@ -168,11 +183,28 @@
       }
     }
 
+
+    
+    var imgVar='';
+    function verImagem(){
+      var imagemInput= in_img.files[0];
+      var receberImagem=new FileReader();
+      receberImagem.addEventListener("load",(arquivo)=>{
+        imgVar=arquivo.target.result;
+        console.log(arquivo.target.result)
+       
+      });
+      receberImagem.readAsDataURL(imagemInput);
+    }
+    
+    
     function cadastrar() {
       var nomeVar = in_nome.value;
+      var sobrenomeVar = in_sobrenome.value;
       var emailVar = in_email.value;
       var senhaVar = in_senha.value;
-
+      var confSenha= in_confSenha.value;
+   
       fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
@@ -182,22 +214,21 @@
           // crie um atributo que recebe o valor recuperado aqui
           // Agora vá para o arquivo routes/usuario.js
           nomeServer: nomeVar,
+          sobrenomeServer: sobrenomeVar,
           emailServer: emailVar,
-          senhaServer: senhaVar
+          senhaServer: senhaVar,
+          imgServer:imgVar,
         })
       }).then(function (resposta) {
 
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          setTimeout(() => {
-            window.location = "index.html";
-          }, 2000)
-
         } else {
           throw ("Houve um erro ao tentar realizar o cadastro!");
         }
-      }).catch(function (resposta) {
+      })
+      .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
     }
@@ -220,12 +251,10 @@
           senhaServer: senhaVar
         })
       }).then(function (resposta) {
-        console.log("resposta: ", resposta);
-
         resposta.json().then(function (json) {
-          console.log(JSON.stringify(json));
-        })
-
+          sessionStorage.setItem('INFO_USUARIO',JSON.stringify(json))
+          setTimeout(()=>{window.location="dashboard-book.html"},2000)
+        });
       }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
