@@ -20,14 +20,14 @@
     <div class="nav-dash">
       <div>
         <div class="logo">FREE BOOK</div>
-        <div class="profile"></div>
-        <div class="nome">Olá, Pedro</div>
+        <div class="profile"><img src="" alt="" id="img_perfil"></div>
+        <div class="nome">Olá, <span></span></div>
         <ul>
           <li>EXPLORAR MEUS LIVROS</li>
           <li>MEUS LIVROS</li>
         </ul>
       </div>
-      <button>SAIR</button>
+      <button class="sairSessao">SAIR</button>
     </div>
 
     <div class="content-dash">
@@ -115,6 +115,22 @@
       </div>
     </div>
   </section>
+  <script>
+          var image=img_perfil;
+          var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO')) 
+          var nome = document.querySelector(".nome span");
+          var sairSessao=document.querySelector(".sairSessao")
+          nome.innerHTML=`${infoUsuario.nome} ${infoUsuario.sobrenome}`
+          image.src=infoUsuario.img;
+
+          sairSessao.addEventListener("click",()=>{
+            sessionStorage.clear();
+            setTimeout(()=>{
+              window.location="index.html";
+            })
+          })
+
+  </script>
 </body>
 
 </html>
