@@ -16,15 +16,19 @@ height: 100vh;
 }
 
 .profile {
-  background-image: url("/img/foto-de-perfil-profissional_o1eh30s23krp31qn41l3havc2fti.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin: auto;
-  margin-bottom: 50px;
-  
+  margin-bottom: 30px;
+
+}
+
+.profile img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .logo{
@@ -35,9 +39,13 @@ height: 100vh;
 }
 .nome {
   text-align: center;
-  font-size: 2.1em;
+  font-size: 1.4em;
   margin-bottom: 20px;
   color: #fff;
+}
+.nome span{
+  color: #fff;
+ 
 }
 
 .nav-dash ul {
@@ -146,6 +154,7 @@ height: auto;
 .group-book{
   display: grid;
   grid-template-columns: repeat(4,220px);
+ 
   row-gap: 20px;
   justify-content: space-around;
   padding: 10px 0;
@@ -156,6 +165,7 @@ height: auto;
   padding: 10px;
   text-align: center;
   border-radius: 20px;
+  height: 420px;
 }
 
 .content-book h2{
@@ -168,14 +178,16 @@ height: auto;
 
 .content-book .img {
   width: 90%;
-  object-fit: cover;
+  
  margin: auto;
  
 }
 
 .img img{
+  height: 270px;
+  width: 100%;
   object-fit: cover;
-  width: 100%; 
+  
 }
 
 .content-book button{

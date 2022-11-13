@@ -204,6 +204,7 @@
       var emailVar = in_email.value;
       var senhaVar = in_senha.value;
       var confSenha= in_confSenha.value;
+      const boll = document.querySelector(".bool");
    
       fetch("/usuarios/cadastrar", {
         method: "POST",
@@ -222,12 +223,14 @@
       }).then(function (resposta) {
 
         console.log("resposta: ", resposta);
+        boll.classList.remove("active");
 
         if (resposta.ok) {
         } else {
           throw ("Houve um erro ao tentar realizar o cadastro!");
         }
       })
+      
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
@@ -253,7 +256,9 @@
       }).then(function (resposta) {
         resposta.json().then(function (json) {
           sessionStorage.setItem('INFO_USUARIO',JSON.stringify(json))
-          setTimeout(()=>{window.location="dashboard-book.html"},2000)
+          setTimeout(()=>{
+            window.location="dashboard-book.html"
+          },2000)
         });
       }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);

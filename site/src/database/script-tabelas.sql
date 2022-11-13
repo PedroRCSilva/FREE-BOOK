@@ -25,10 +25,10 @@ CREATE TABLE LIVROS
 titulo varchar(45),
 autor varchar(45),
 dtLanc date,
-img varchar(5000),
+img longtext,
 descricao varchar(400),
 fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario)
 );
 
+select * from livros;
 
-SELECT * FROM USUARIO;

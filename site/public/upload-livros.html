@@ -46,14 +46,14 @@
       <div class="form-step">
         <div class="campo active">
           <label >Informe um titulo para seu livro</label>
-          <input type="text">
+          <input type="text" id="in_titulo">
 
           <button class="next">Continuar</button>
         </div>
 
         <div class="campo">
           <label for="">Escreva uma descrição para seu livro</label>
-          <textarea type="text"></textarea>
+          <textarea type="text" id="in_descricao"></textarea>
           <button class="prev">Voltar</button>
           <button class="next">Continuar</button>
           
@@ -65,16 +65,16 @@
             <label for="">Envie a capa do seu livro</label>
             <img src="/public/img/bx_image-add.png" alt="">
           </div>
-          <input type="file" id="image">
+          <input type="file" id="image" onchange="transformarBase64()">
           <button class="prev">Voltar</button>
           <button class="next">Continuar</button>
         </div>
       
         <div class="campo">
           <label for="">Informe o link do PDF</label>
-          <input type="url" id="url">
+          <input type="url" id="in_url">
           <button class="prev">Voltar</button>
-          <button class="next">Publicar</button>
+          <button class="next" onclick="cadastrarLivro()">Publicar</button>
         </div> 
 
         <div class="bar-progress">
@@ -89,6 +89,9 @@
     
   </section>
   <script src="js/uploadLivro.js"></script>
+  <script>
+    
+  </script>
 </body>
 
 </html>
