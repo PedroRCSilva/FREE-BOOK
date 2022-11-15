@@ -13,6 +13,7 @@ imgFile.addEventListener("click", () => {
 
 function avancar() {
   if (etapaProgress < progressCircle.length - 1) {
+
     etapaProgress++;
     progressCircle[etapaProgress].classList.add("active");
     stepProgress[etapaProgress - 1].classList.remove("active");
@@ -44,40 +45,35 @@ btnProx.forEach((element, idx) => {
     }
   });
 });
-
 btnPrev.forEach((element, idx) => {
   element.addEventListener("click", () => {
     retroceder();
   });
 });
 
-var imgVar="";
-function transformarBase64(){
-  var lerImagem= new FileReader();
-  lerImagem.onload=(arquivo)=>{
-  imgVar=arquivo.target.result;
-  }
-  
-  lerImagem.readAsDataURL(image.files[0])
+
+
+var imgVar = "";
+function transformarBase64() {
+  var lerImagem = new FileReader();
+  lerImagem.onload = (arquivo) => {
+    imgVar = arquivo.target.result;
+  };
+  lerImagem.readAsDataURL(image.files[0]);
 }
 
 function cadastrarLivro() {
   var infoSection = JSON.parse(sessionStorage.getItem("INFO_USUARIO"));
   var dtLancVar = new Date();
   var tituloVar = in_titulo.value;
-  var autorVar = infoSection.nome;
+  var autorVar = infoSection.nome+" "+infoSection.sobrenome;
   var descricaoVar = in_descricao.value;
   var fkUsuarioVar = infoSection.idUsuario;
-  dtLancVar = dtLancVar
-    .toLocaleDateString({
+  dtLancVar = dtLancVar.toLocaleDateString({
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
-    })
-    .replaceAll("/", "-")
-    .split("-")
-    .reverse()
-    .join("-");
+    }).replaceAll("/", "-").split("-").reverse().join("-");
 
   fetch("/usuarios/cadastrarLivro", {
     method: "POST",

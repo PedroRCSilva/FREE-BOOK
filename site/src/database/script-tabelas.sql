@@ -26,9 +26,11 @@ titulo varchar(45),
 autor varchar(45),
 dtLanc date,
 img longtext,
-descricao varchar(400),
+descricao longtext,
 fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario)
 );
+alter table livros modify column descricao longtext;
 
-select * from livros;
+
+
 

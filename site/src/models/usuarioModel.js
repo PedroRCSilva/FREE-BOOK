@@ -45,10 +45,18 @@ var instrucao = 'SELECT * FROM LIVROS;'
 return database.executar(instrucao)
 }
 
+function buscarLivroSelecionado(id){
+    console.log("Buscar Livro"+id);
+    var instrucao = `SELECT * FROM LIVROS WHERE IDLIVRO=${id}`;
+    return database.executar(instrucao)
+}
+
+'                                                                                                                                       '
 module.exports = {
     entrar,
     cadastrar,
     listar,
     cadastrarLivro,
     buscarLivro,
+    buscarLivroSelecionado,
 };

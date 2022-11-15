@@ -17,6 +17,17 @@ function buscarLivro(req,res){
   })
 }
 
+function buscarLivroSelecionado(req,res){
+  var idLivro= req.body.idServer;
+  console.log("CHEGOU DADOS")
+  usuarioModel.buscarLivroSelecionado(idLivro).then((resultado)=>{
+    res.json(resultado);
+  })
+  .catch((erro)=>{
+    console.log("Erro na consulta"+erro);
+  })
+}
+
 function cadastrarLivro(req, res) {
   var titulo = req.body.tituloServer;
   var autor = req.body.autorServer;
@@ -132,4 +143,5 @@ module.exports = {
   testar,
   cadastrarLivro,
   buscarLivro,
+  buscarLivroSelecionado,
 };

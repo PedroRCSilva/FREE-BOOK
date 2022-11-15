@@ -89,10 +89,15 @@ height: auto;
   
 }
 
-.indicators>h2{
-  font-size: 1.8em;
-  text-align: center;
+.indicators>div:nth-child(1){
+  display: flex;
+  justify-content: center;
 }
+
+.button-upload{
+ width: 30px;
+}
+
 
 .indicators .group-indicators{
   display: flex;

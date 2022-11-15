@@ -21,7 +21,7 @@
 }
 
 .principal .container {
-  width: 80%;
+  width: 100%;
   justify-content: space-around;
   padding: 70px 0;
   height: 100%;
@@ -47,8 +47,8 @@
 }
 
 .content-text {
-  height: 420px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
 
@@ -56,13 +56,16 @@
 
 .content-img img {
   object-fit: cover;
-  height: 463px;
+width: 320px;
+height: 500px;
   border-radius: 20px;
 }
 
 .content-text h2 {
-  font-size: 3.4em;
+
+  font-size: 3em;
   margin-bottom: 10px;
+  text-overflow: ellipsis;
 }
 
 .content-text h4 {

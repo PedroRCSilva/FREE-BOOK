@@ -30,5 +30,8 @@ router.post("/livros",function(req,res){
     usuarioController.buscarLivro(req,res)
 })
 
+router.post("/buscarLivro",function(req,res){
+    usuarioController.buscarLivroSelecionado(req,res)
+})
 
 module.exports = router;

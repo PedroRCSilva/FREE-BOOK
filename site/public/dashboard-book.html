@@ -10,6 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dashboard.css">
+  <script>
+ var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
+if(infoUsuario==undefined){
+window.location="login-cadastro.html"
+}
+  </script>
   <title>FREEBOOK - HOME </title>
 </head>
 
@@ -27,14 +33,20 @@
           <li>MEUS LIVROS</li>
         </ul>
       </div>
-      <button class="sairSessao">SAIR</button>
+      <button class="sairSessao" onclick="sairSessao()">SAIR</button>
     </div>
 
     <div class="content-dash">
 
 
       <div class="indicators">
+        <div>
         <h2>PRINCIPAIS INDICADORES</h2>
+        <div class="button-upload">
+          
+          <a href="upload-livros.html"><button>aasas</button></a>
+        </div>
+      </div>
         <div class="group-indicators">
           <div class="square-indicator">
             <h2>DOWNLOAD</h2>
@@ -58,75 +70,25 @@
       <div class="book-list">
         <h2>LIVROS DA PLATAFORMA</h2>
         <div class="group-book">
-          <div class="content-book">
-            <div class="img">
-              <img src="img/514X7ZAS-oL 1.png" alt="">
-            </div>
-            <div class="content-book-text">
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <button>Download</button>
-            </div>
-          </div>
-          <div class="content-book">
-            <div class="img">
-              <img src="img/514X7ZAS-oL 1.png" alt="">
-            </div>
-            <div class="content-book-text">
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <button>Download</button>
-            </div>
-          </div>
-          <div class="content-book">
-            <div class="img">
-              <img src="img/514X7ZAS-oL 1.png" alt="">
-            </div>
-            <div class="content-book-text">
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <button>Download</button>
-            </div>
-          </div>
-          <div class="content-book">
-            <div class="img">
-              <img src="img/514X7ZAS-oL 1.png" alt="">
-            </div>
-            <div class="content-book-text">
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <button>Download</button>
-            </div>
-          </div>
-          <div class="content-book">
-            <div class="img">
-              <img src="img/514X7ZAS-oL 1.png" alt="">
-            </div>
-            <div class="content-book-text">
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <button>Download</button>
-            </div>
-          </div>
+  
         </div>
       </div>
     </div>
   </section>
   <script>
-
+    
     fetch("/usuarios/livros", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       }
-    }).then((resultado) => {
+    })
+    .then((resultado) => {
       resultado.json().then((json) => {
         var divLivros = document.querySelector(".group-book");
-        var livrosBancoDados = sessionStorage.getItem('BOOK');
-        console.log(livrosBancoDados);
         for (var i = 0; i < json.length; i++) {
           divLivros.innerHTML +=
-            `  <div class="content-book" id=${json[i].idLivro} onclick="verDescricaoCompleta(id)">
+            `<div class="content-book"  onclick="verDescricaoCompleta(${json[i].idLivro})">
             <div class="img">
               <img src="${json[i].img}" alt="">
             </div>
@@ -137,9 +99,7 @@
             </div>
           </div>`
         }
-
       })
-      exbirLivrosBanco();
     })
       .catch((erro) => {
         console.log("resultado" + erro);
@@ -147,12 +107,16 @@
 
 
     function exbirInfoUsuario() {
-      var image = img_perfil;
       var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
+
+  
+      var image = img_perfil;
       var nome = document.querySelector(".nome span");
-      var sairSessao = document.querySelector(".sairSessao")
       nome.innerHTML = `${infoUsuario.nome} ${infoUsuario.sobrenome}`
       image.src = infoUsuario.img;
+      
+   
+      
     }
 
     function sairSessao() {
@@ -163,8 +127,12 @@
     }
 
     function verDescricaoCompleta(id){
-      console.log(id)
+      sessionStorage.setItem("BOOK",id);
+      setTimeout(()=>{
+        window.location="info-book.html";
+      })
     }
+  exbirInfoUsuario();
 
   </script>
 </body>
