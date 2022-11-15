@@ -79,7 +79,7 @@
     img_perfil.src=JSON.parse(sessionStorage.getItem("INFO_USUARIO")).img;
     nome.innerHTML=JSON.parse(sessionStorage.getItem("INFO_USUARIO")).nome+" "+JSON.parse(sessionStorage.getItem("INFO_USUARIO")).sobrenome
     var idLivro = sessionStorage.getItem("BOOK");
-    fetch("usuarios/buscarLivro", {
+    fetch("livro/buscarLivro", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

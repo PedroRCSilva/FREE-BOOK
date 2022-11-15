@@ -22,16 +22,6 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
-router.post("/cadastrarLivro",function(req,res){
-    usuarioController.cadastrarLivro(req,res)
-})
 
-router.post("/livros",function(req,res){
-    usuarioController.buscarLivro(req,res)
-})
-
-router.post("/buscarLivro",function(req,res){
-    usuarioController.buscarLivroSelecionado(req,res)
-})
 
 module.exports = router;

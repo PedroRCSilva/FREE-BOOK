@@ -1,21 +1,23 @@
 CREATE DATABASE FREEBOOK;
 USE FREEBOOK;
 
+
 CREATE TABLE USUARIO
 (idUsuario int primary key auto_increment,
 nome varchar(45),
 sobrenome varchar(45),
 email varchar(255),
 senha varchar(100),
-img varchar(5000)
+img longtext
 );
 
 CREATE TABLE METRICA
 (
 idMetrica int auto_increment,
 dtMetrica date,
-qtdVisitia int,
+qtdVisita int,
 livrosPublicados int,
+downloads int,
 fkUsuario int,foreign key(fkUsuario) references Usuario(idUsuario),
 PRIMARY KEY(idMetrica,fkUsuario)
 );
@@ -29,8 +31,7 @@ img longtext,
 descricao longtext,
 fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario)
 );
-alter table livros modify column descricao longtext;
-
+select * from usuario;
 
 
 

@@ -10,7 +10,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var avisosRouter = require("./src/routes/avisos");
+var livroRouter = require("./src/routes/livro");
 var medidasRouter = require("./src/routes/medidas");
 
 app.use(express.json({limit:'500mb'}));
@@ -21,7 +21,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
+app.use("/livro", livroRouter);
 app.use("/medidas", medidasRouter)
 
 app.listen(PORTA, function () {

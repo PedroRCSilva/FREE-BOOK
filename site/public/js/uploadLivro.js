@@ -75,7 +75,7 @@ function cadastrarLivro() {
       day: "2-digit",
     }).replaceAll("/", "-").split("-").reverse().join("-");
 
-  fetch("/usuarios/cadastrarLivro", {
+  fetch("/livro/cadastrarLivro", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
