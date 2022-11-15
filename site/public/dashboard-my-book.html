@@ -107,10 +107,24 @@
         </div>
       </div>
     </div>
-
-
     </div>
   </section>
 </body>
+<script>
+var idUsuario = JSON.parse(sessionStorage.getItem("INFO_USUARIO")).idUsuario
+  fetch(`/usuarios/listarLivro/${idUsuario}`,{
+    method:"GET",
+    headers:{
+      "Content-type":"application/json"
+    }
+  }).then((resposta)=>{
+    resposta.json().then((json)=>{
+      console.log(json);
+    })
+  }).catch((erro)=>{
+    console.log(erro)
+  })
 
+  
+</script>
 </html>

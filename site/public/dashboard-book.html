@@ -28,40 +28,33 @@
         <div class="profile"><img src="" alt="" id="img_perfil"></div>
         <div class="nome">Olá, <span></span></div>
         <ul>
-          <li>EXPLORAR MEUS LIVROS</li>
-          <li>MEUS LIVROS</li>
+          <a href="dashboard-book.html"><li>EXPLORAR MEUS LIVROS</li></a>
+          <a href="dashboard-my-book.html"><li>MEUS LIVROS</li></a>
+          <a href="upload-livros.html"><li>FAZER UPLOAD</li></a>
         </ul>
       </div>
       <button class="sairSessao" onclick="sairSessao()">SAIR</button>
     </div>
 
     <div class="content-dash">
-
-
       <div class="indicators">
-        <div>
+        
           <h2>PRINCIPAIS INDICADORES</h2>
-          <div class="button-upload">
-
-            <a href="upload-livros.html"><button>aasas</button></a>
-          </div>
-        </div>
+       
+        
         <div class="group-indicators">
-          <div class="square-indicator">
-            <h2>DOWNLOAD</h2>
-            <span>40</span>
-          </div>
-          <div class="square-indicator">
-            <h2>TOTAL DE LIVROS</h2>
-            <span>40</span>
-          </div>
-          <div class="square-indicator">
-            <h2>CONTAS ATIVAS</h2>
-            <span>40</span>
-          </div>
+  
           <div class="square-indicator">
             <h2>LIVROS PUBLICADOS</h2>
-            <span>40</span>
+            <span id="livros">40</span>
+          </div>
+          <div class="square-indicator">
+            <h2>DATA DA ULTIMA VISITA</h2>
+            <span id="data">40</span>
+          </div>
+          <div class="square-indicator">
+            <h2>QUANTIDADE DE VISITAS</h2>
+            <span id="qtdVisita">40</span>
           </div>
         </div>
       </div>
@@ -69,8 +62,15 @@
       <div class="book-list">
         <h2>LIVROS DA PLATAFORMA</h2>
         <div class="group-book">
-
         </div>
+
+      </div>
+    </div>
+
+    <div class="loading">
+      CARREGANDO INFORMAÇÕES...
+      <div class="animacao">
+        <div></div>
       </div>
     </div>
   </section>

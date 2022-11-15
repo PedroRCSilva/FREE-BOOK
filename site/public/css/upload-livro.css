@@ -181,17 +181,17 @@ transition: 0.5s;
 
 
 .campo .input-select {
-  cursor: pointer;
-  border: 1px solid black;
-  display: flex;
-  width: 80%;
-  height: 290px;
-  margin: auto;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  cursor: pointer !important;
+  border: 1px solid black !important;
+  display: flex !important;
+  width: 80% !important;
+  height: 290px !important;
+  margin: auto !important;
+  flex-direction: column !important; 
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 10px !important;
+  margin-bottom: 20px !important;
 }
 
 

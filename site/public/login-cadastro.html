@@ -54,23 +54,25 @@
       <div class="content-text">
         <form class="cadastro">
           <h2>CADASTRO</h2>
-          <div class="etapa active">
+          <div class="etapa active ">
             <div class="campos">
               <div class="input">
                 <label>
                   <img src="img/user.png" alt="">
                 </label>
-                <input type="email" name="" placeholder="Insira seu nome" id="in_nome">
+                <input type="text" placeholder="Insira seu nome" id="in_nome">
               </div>
               <div class="input">
                 <label>
-                  <img src="img/passoword.png" alt="">
+                  <img src="img/user.png" alt="">
                 </label>
-                <input type="email" name="" placeholder="Insira seu sobrenome" id="in_sobrenome">
+                <input type="text" placeholder="Insira seu sobrenome" id="in_sobrenome">
               </div>
             </div>
             <button type="button" onclick="proximaEtapa()">PROXIMO</button>
+            <div class="validacao">
 
+            </div>
           </div>
 
 
@@ -78,7 +80,7 @@
 
             <div class="input">
               <label>
-                <img src="img/user.png" alt="">
+                <img src="img/mail.png" alt="">
               </label>
               <input type="email" name="" id="in_email" placeholder="Insira seu email">
             </div>
@@ -87,13 +89,15 @@
               <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
               <button type="button" onclick="proximaEtapa()">PRÓXIMA</button>
             </div>
+            <div class="validacao">
 
+            </div>
           </div>
           <div class="etapa">
 
             <div class="input">
               <label>
-                <img src="img/user.png" alt="">
+                <img src="img/passoword.png" alt="">
               </label>
               <input type="password" name="" placeholder="Insira sua senha" id="in_senha">
             </div>
@@ -109,16 +113,19 @@
               <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
               <button type="button" onclick="proximaEtapa()">PRÓXIMA</button>
             </div>
+            <div class="validacao">
 
+            </div>
           </div>
 
           <div class="etapa">
-
             <div class="input">
-              <label>
-                <img src="img/user.png" alt="">
+              <label class="input-file" id="labelFile">
+                INSIRA SUA FOTO DE PERFIL
+                <img src="/site/public/img/bx_image-add.png" alt="" id="imgEntrada">
+                <img src="" id="imgLoading">
+                <input type="file" name="" id="in_img" onchange="verImagem()">
               </label>
-              <input type="file" name=""id="in_img" onchange="verImagem()">
             </div>
 
             <div class="btns">
@@ -127,13 +134,9 @@
             </div>
 
           </div>
-
-
       </div>
       </form>
     </div>
-
-
     </div>
   </section>
 
@@ -156,8 +159,6 @@
       <p>NUNCA ENTROU NO UNIVERSO DA FREEBOOK?<br> FAÇA SEU CADASTRO</p>
       <button class="btn">Cadastre-se</button>
     </div>
-
-
   </div>
 
   <script src="js/loginCadastro.js"></script>

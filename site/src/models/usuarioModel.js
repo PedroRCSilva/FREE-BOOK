@@ -32,10 +32,21 @@ function cadastrar(nome, email, senha,sobrenome,img) {
 }
 
 
+function listarLivros(idUsuario){
+    var instrucao = `SELECT LIVROS.img,LIVROS.descricao,LIVROS.titulo,LIVROS.autor,livros.dtLanc FROM USUARIO JOIN LIVROS ON IDUSUARIO=FKUSUARIO WHERE IDUSUARIO=${idUsuario};`
+    return database.executar(instrucao);
+}
+
+function QuantidadeLivros(idUsuario){
+    var instrucao = `SELECT COUNT(LIVROS.TITULO) AS VALOR FROM USUARIO JOIN LIVROS ON IDUSUARIO = FKUSUARIO WHERE IDUSUARIO=${idUsuario};`;
+return database.executar(instrucao);
+}
 
 '                                                                                                                                       '
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    listarLivros,
+    QuantidadeLivros
 };

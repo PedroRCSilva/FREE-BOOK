@@ -1,4 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
+var metricaModel = require("../models/metricaModel");
 
 var sessoes = [];
 
@@ -52,7 +53,10 @@ function entrar(req, res) {
         } else {
           res.status(403).send("Mais de um usuário com o mesmo login e senha!");
         }
+      
       })
+        
+      
       .catch(function (erro) {
         console.log(erro);
         console.log(
@@ -86,7 +90,10 @@ function cadastrar(req, res) {
     usuarioModel
       .cadastrar(nome, email, senha, sobrenome, img)
       .then(function (resultado) {
-        res.json(resultado);
+       res.json(resultado);
+        metricaModel.criarMetrica(email).then((result)=>{
+          console.log(result)
+        })
       })
       .catch(function (erro) {
         console.log(erro);
@@ -94,9 +101,35 @@ function cadastrar(req, res) {
           "\nHouve um erro ao realizar o cadastro! Erro: ",
           erro.sqlMessage
         );
-        res.status(500).json(erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage)
+     
       });
+      
+      
   }
+}
+
+function listarLivros(req,res){
+  var idUsuario=req.params.idUsuario;
+  usuarioModel.listarLivros(idUsuario).then((resultado)=>{
+    res.json(resultado);
+  })
+  .catch((erro)=>{
+    console.log("ERRO NA CONSULTA"+erro)
+  })
+}
+
+
+function exibirQtdLivros(req, res) {
+  var idUsuario = req.params.idUsuario;
+  usuarioModel
+    .QuantidadeLivros(idUsuario)
+    .then((json) => {
+      res.json(json);
+    })
+    .catch((erro) => {
+      console.log(erro);
+    });
 }
 
 module.exports = {
@@ -104,4 +137,6 @@ module.exports = {
   cadastrar,
   listar,
   testar,
+  listarLivros,
+  exibirQtdLivros,
 };

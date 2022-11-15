@@ -13,7 +13,6 @@ imgFile.addEventListener("click", () => {
 
 function avancar() {
   if (etapaProgress < progressCircle.length - 1) {
-
     etapaProgress++;
     progressCircle[etapaProgress].classList.add("active");
     stepProgress[etapaProgress - 1].classList.remove("active");
@@ -40,6 +39,7 @@ function retroceder() {
 
 btnProx.forEach((element, idx) => {
   element.addEventListener("click", () => {
+    
     avancar();
     if (idx == btnProx.length - 1) {
     }

@@ -1,26 +1,30 @@
-var usuarioModel = require("../models/livroModel");
+var livroModel = require("../models/livroModel");
 
 var sessoes = [];
 
-function buscarLivro(req,res){
-  console.log("CHEGOU DADOS")
-  usuarioModel.buscarLivro().then((resultado)=>{
-    res.json(resultado);
-  })
-  .catch((erro)=>{
-    console.log("Erro na consulta"+erro);
-  })
+function buscarLivro(req, res) {
+  console.log("CHEGOU DADOS");
+  livroModel
+    .buscarLivro()
+    .then((resultado) => {
+      res.json(resultado);
+    })
+    .catch((erro) => {
+      console.log("Erro na consulta" + erro);
+    });
 }
 
-function buscarLivroSelecionado(req,res){
-  var idLivro= req.body.idServer;
-  console.log("CHEGOU DADOS")
-  usuarioModel.buscarLivroSelecionado(idLivro).then((resultado)=>{
-    res.json(resultado);
-  })
-  .catch((erro)=>{
-    console.log("Erro na consulta"+erro);
-  })
+function buscarLivroSelecionado(req, res) {
+  var idLivro = req.body.idServer;
+  console.log("CHEGOU DADOS");
+  livroModel
+    .buscarLivroSelecionado(idLivro)
+    .then((resultado) => {
+      res.json(resultado);
+    })
+    .catch((erro) => {
+      console.log("Erro na consulta" + erro);
+    });
 }
 
 function cadastrarLivro(req, res) {
@@ -31,18 +35,30 @@ function cadastrarLivro(req, res) {
   var descricao = req.body.descricaoServer;
   var fkUsuario = req.body.fkUsuarioServer;
 
-  usuarioModel.cadastrarLivro(titulo,autor,dtLanc,img,descricao,fkUsuario)
+  livroModel
+    .cadastrarLivro(titulo, autor, dtLanc, img, descricao, fkUsuario)
     .then((resultado) => {
       res.json(resultado);
     })
     .catch((resultado) => {
-      console.log("Erro ao cadastrar livro"+resultado);
+      console.log("Erro ao cadastrar livro" + resultado);
     });
 }
 
-module.exports =
-{
+function atualizarDownloads(req, res) {
+var idLivro = req.params.idLivro;
+  livroModel
+    .atualizarDownloads(idLivro)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((erro) => {
+      console.log(erro);
+    });
+}
+module.exports = {
   cadastrarLivro,
   buscarLivro,
   buscarLivroSelecionado,
-}
+  atualizarDownloads,
+};
