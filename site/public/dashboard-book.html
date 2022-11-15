@@ -11,10 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dashboard.css">
   <script>
- var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
-if(infoUsuario==undefined){
-window.location="login-cadastro.html"
-}
+    var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
+    if (infoUsuario == undefined) {
+      window.location = "login-cadastro.html"
+    }
   </script>
   <title>FREEBOOK - HOME </title>
 </head>
@@ -22,7 +22,6 @@ window.location="login-cadastro.html"
 <body>
 
   <section class="dashboard">
-
     <div class="nav-dash">
       <div>
         <div class="logo">FREE BOOK</div>
@@ -41,12 +40,12 @@ window.location="login-cadastro.html"
 
       <div class="indicators">
         <div>
-        <h2>PRINCIPAIS INDICADORES</h2>
-        <div class="button-upload">
-          
-          <a href="upload-livros.html"><button>aasas</button></a>
+          <h2>PRINCIPAIS INDICADORES</h2>
+          <div class="button-upload">
+
+            <a href="upload-livros.html"><button>aasas</button></a>
+          </div>
         </div>
-      </div>
         <div class="group-indicators">
           <div class="square-indicator">
             <h2>DOWNLOAD</h2>
@@ -70,71 +69,12 @@ window.location="login-cadastro.html"
       <div class="book-list">
         <h2>LIVROS DA PLATAFORMA</h2>
         <div class="group-book">
-  
+
         </div>
       </div>
     </div>
   </section>
-  <script>
-    
-    fetch("/livro/livros", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    })
-    .then((resultado) => {
-      resultado.json().then((json) => {
-        var divLivros = document.querySelector(".group-book");
-        for (var i = 0; i < json.length; i++) {
-          divLivros.innerHTML +=
-            `<div class="content-book"  onclick="verDescricaoCompleta(${json[i].idLivro})">
-            <div class="img">
-              <img src="${json[i].img}" alt="">
-            </div>
-            <div class="content-book-text">
-              <h2>${json[i].titulo}</h2>
-              <h3>${json[i].autor}</h3>
-              <a href=""><button>Download</button></a>
-            </div>
-          </div>`
-        }
-      })
-    })
-      .catch((erro) => {
-        console.log("resultado" + erro);
-      })
-
-
-    function exbirInfoUsuario() {
-      var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
-
-  
-      var image = img_perfil;
-      var nome = document.querySelector(".nome span");
-      nome.innerHTML = `${infoUsuario.nome} ${infoUsuario.sobrenome}`
-      image.src = infoUsuario.img;
-      
-   
-      
-    }
-
-    function sairSessao() {
-      sessionStorage.clear();
-      setTimeout(() => {
-        window.location = "index.html";
-      })
-    }
-
-    function verDescricaoCompleta(id){
-      sessionStorage.setItem("BOOK",id);
-      setTimeout(()=>{
-        window.location="info-book.html";
-      })
-    }
-  exbirInfoUsuario();
-
-  </script>
+  <script src="js/dashboardBook.js"></script>
 </body>
 
 </html>
