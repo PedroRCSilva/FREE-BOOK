@@ -8,17 +8,18 @@ function atualizarDtMetrica(idUsuario,dtMetrica){
 
 function atualizarVisitaMetrica(idUsuario){
   var instrucao = `UPDATE METRICA SET qtdVisita=qtdVisita+1 where FKUSUARIO=${idUsuario}`;
-
   return database.executar(instrucao)
 }
 
-function criarMetrica(email){
-  var instrucao=`INSERT INTO METRICA(dtMetrica,qtdVisita,livrosPublicados,fkUsuario) VALUES(0,0,0,(SELECT IDUSUARIO FROM USUARIO WHERE email="${email}"));`
+function criarMetrica(email,data){
+  console.log(data)
+  console.log("  ************** ENTREI NA QUERY **************")
+  var instrucao=`INSERT INTO METRICA(dtMetrica,qtdVisita,fkUsuario) VALUES('${data}',0,(SELECT IDUSUARIO FROM USUARIO WHERE email="${email}"));`;
   return database.executar(instrucao)
 }
 
 function exibirMedidas(idUsuario){
-  var instrucao = `SELECT * FROM METRICA`;
+  var instrucao = `SELECT * FROM METRICA WHERE FKUSUARIO=${idUsuario}`;
   return database.executar(instrucao)
 }
 

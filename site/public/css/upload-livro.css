@@ -180,12 +180,12 @@ transition: 0.5s;
 }
 
 
-.campo .input-select {
+.campo #inputSelect {
   cursor: pointer !important;
   border: 1px solid black !important;
   display: flex !important;
-  width: 80% !important;
-  height: 290px !important;
+  width: 300px !important;
+  height: 400px !important;
   margin: auto !important;
   flex-direction: column !important; 
   justify-content: center !important;
@@ -193,11 +193,15 @@ transition: 0.5s;
   border-radius: 10px !important;
   margin-bottom: 20px !important;
 }
-
+#imgFile{
+  object-fit: cover;
+  border-radius: 10px;
+}
 
 .campo .input-select img {
   margin-top: 10px;
   width: 60px;
+ 
 }
 
 .bar-progress {
@@ -222,4 +226,10 @@ transition: 0.5s;
 .line.active{
   background-color: #019974;
   transition: 0.5s;
+}
+
+.lengthText{
+  width: 90px;
+  height: 20px;
+  transform: translate(47vw,45vh);
 }

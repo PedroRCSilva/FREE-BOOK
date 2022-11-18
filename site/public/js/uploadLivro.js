@@ -4,15 +4,45 @@ const stepProgress = document.querySelectorAll(".campo");
 const btnProx = document.querySelectorAll(".next");
 const btnPrev = document.querySelectorAll(".prev ");
 const lineProgress = document.querySelectorAll(".line");
-const imgFile = document.querySelector(".input-select");
 let etapaProgress = 0;
 
-imgFile.addEventListener("click", () => {
-  image.click();
-});
 
+
+function calculandoTamanhoTextArea(){
+  var descricaoVar = in_descricao.value;
+  var lengthText = document.querySelector(".lengthText");
+  lengthText.innerHTML=`${descricaoVar.length}/1000`
+}
 function avancar() {
-  if (etapaProgress < progressCircle.length - 1) {
+  var tituloVar = in_titulo.value;
+  // var autorVar = infoSection.nome+" "+infoSection.sobrenome;
+  var descricaoVar = in_descricao.value;
+  var img = image.files;
+
+  var urlPdf=in_url;
+  // var fkUsuarioVar = infoSection.idUsuario;
+  var validacao = true;
+
+  if(etapaProgress==0 && tituloVar.length<=5 ||tituloVar.length>40){
+    alert("INSIRA UM TITULO COM NO MINIMO 5 CARACTERES E NO MAXIMO 15")
+    validacao=false
+  }
+  if(etapaProgress==1 && descricaoVar<10 || descricaoVar>1000 ){
+    alert("INSIRA UMA DESCRIÇÃO COM NO MINIMO 1O CARACTERES E COM UM MAXIMO DE 1000")
+    validacao=false;
+  }
+
+  
+  if(etapaProgress==2  &&  urlPdf.length>2083 || urlPdf==""){
+    validacao=false;
+    alert("INSIRA UM URL VÁLIDA");
+  }
+  if(etapaProgress==3 && img.length<1){
+    validacao=false;
+    alert("INSIRA UMA CAPA PARA SEU LIVRO");
+  }
+
+  if (etapaProgress < progressCircle.length - 1 && validacao) {
     etapaProgress++;
     progressCircle[etapaProgress].classList.add("active");
     stepProgress[etapaProgress - 1].classList.remove("active");
@@ -55,9 +85,14 @@ btnPrev.forEach((element, idx) => {
 
 var imgVar = "";
 function transformarBase64() {
+  var teste = document.querySelector("#inputSelect h2");
   var lerImagem = new FileReader();
   lerImagem.onload = (arquivo) => {
     imgVar = arquivo.target.result;
+  teste.remove()
+    imgFile.src=imgVar;
+    imgFile.style.width="100%"
+    imgFile.style.height="100%"
   };
   lerImagem.readAsDataURL(image.files[0]);
 }
@@ -90,7 +125,9 @@ function cadastrarLivro() {
     }),
   })
     .then((resposta) => {
-      console.log("Funcionou" + resposta);
+      console.log("Funcionou" + resposta)
+      window.location="dashboard-book.html"
+      ;
     })
 
     .catch((resposta) => {

@@ -17,9 +17,7 @@ function atualizarData(req,res){
 function atualizarVisita(req,res){
   var idUsuario = req.params.idUsuario;
   console.log(idUsuario)
-  metricaModel.atualizarVisitaMetrica(idUsuario).then((res)=>{
-    console.log(res);
-  })
+  metricaModel.atualizarVisitaMetrica(idUsuario)
 }
 
 function exibirMedidas(req,res){
@@ -27,17 +25,20 @@ var idUsuario = req.params.idUsuario;
   metricaModel.exibirMedidas(idUsuario).then((resultado)=>{
     res.json(resultado)
   })
-  .catch((erro)=>{
-   console.log(erro)
+}
+function criarMetrica(req,res){
+  var email = req.body.emailVar;
+  var data = req.body.dataVar;
+  metricaModel.criarMetrica(email,data).then((resultado)=>{
+    console.log(res.json(resultado))
   })
 }
-
-
 
 
 module.exports={
   atualizarData,
   atualizarVisita,
   exibirMedidas,
+  criarMetrica,
 
 }

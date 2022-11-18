@@ -23,4 +23,8 @@ router.get("/listarMedida/:idUsuario",(req,res)=>{
   metricaController.exibirMedidas(req,res)
 })
 
+router.post("/criarMetrica",function (req,res){
+  metricaController.criarMetrica(req,res);
+})
+
 module.exports = router;

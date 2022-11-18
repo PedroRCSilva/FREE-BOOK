@@ -8,7 +8,6 @@ function testar(req, res) {
   res.json("ESTAMOS FUNCIONANDO!");
 }
 
-
 function listar(req, res) {
   usuarioModel
     .listar()
@@ -42,21 +41,19 @@ function entrar(req, res) {
       .entrar(email, senha)
       .then(function (resultado) {
         console.log(`\nResultados encontrados: ${resultado.length}`);
-        console.log(`Resultados: ${JSON.stringify(resultado)}`);
+        console.log(`Resultados: OBEJETOS`);
         // transforma JSON em String
 
         if (resultado.length == 1) {
-          console.log(resultado);
+          console.log("resultado");
           res.json(resultado[0]);
         } else if (resultado.length == 0) {
           res.status(403).send("Email e/ou senha inválido(s)");
         } else {
           res.status(403).send("Mais de um usuário com o mesmo login e senha!");
         }
-      
       })
-        
-      
+
       .catch(function (erro) {
         console.log(erro);
         console.log(
@@ -90,10 +87,8 @@ function cadastrar(req, res) {
     usuarioModel
       .cadastrar(nome, email, senha, sobrenome, img)
       .then(function (resultado) {
-       res.json(resultado);
-        metricaModel.criarMetrica(email).then((result)=>{
-          console.log(result)
-        })
+        // res.json(resultado);
+      console.log("CADASTROU NO SISTEMA")
       })
       .catch(function (erro) {
         console.log(erro);
@@ -101,24 +96,22 @@ function cadastrar(req, res) {
           "\nHouve um erro ao realizar o cadastro! Erro: ",
           erro.sqlMessage
         );
-        res.status(500).json(erro.sqlMessage)
-     
+        res.status(500).json(erro.sqlMessage);
       });
-      
-      
   }
 }
 
-function listarLivros(req,res){
-  var idUsuario=req.params.idUsuario;
-  usuarioModel.listarLivros(idUsuario).then((resultado)=>{
-    res.json(resultado);
-  })
-  .catch((erro)=>{
-    console.log("ERRO NA CONSULTA"+erro)
-  })
+function listarLivros(req, res) {
+  var idUsuario = req.params.idUsuario;
+  usuarioModel
+    .listarLivros(idUsuario)
+    .then((resultado) => {
+      res.json(resultado);
+    })
+    .catch((erro) => {
+      console.log("ERRO NA CONSULTA" + erro);
+    });
 }
-
 
 function exibirQtdLivros(req, res) {
   var idUsuario = req.params.idUsuario;

@@ -165,8 +165,7 @@ height: auto;
 
 .group-book{
   display: grid;
-  grid-template-columns: repeat(4,220px);
- 
+  grid-template-columns: repeat(4,250px);
   row-gap: 20px;
   justify-content: space-around;
   padding: 10px 0;
@@ -174,7 +173,7 @@ height: auto;
 
 .content-book{
   background-color: #222;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
   border-radius: 20px;
   height: 420px;
@@ -182,6 +181,9 @@ height: auto;
 
 .content-book h2{
   color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content-book h3{
@@ -199,6 +201,7 @@ height: auto;
   height: 270px;
   width: 100%;
   object-fit: cover;
+  border-radius: 10px;
   
 }
 

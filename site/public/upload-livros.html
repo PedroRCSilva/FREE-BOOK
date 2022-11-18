@@ -53,7 +53,9 @@
 
         <div class="campo">
           <label for="">Escreva uma descrição para seu livro</label>
-          <textarea type="text" id="in_descricao"></textarea>
+          <div class="lengthText">0/1000</div>
+          <textarea type="text" id="in_descricao" onkeyup="calculandoTamanhoTextArea()"></textarea>
+          
           <button class="prev">Voltar</button>
           <button class="next">Continuar</button>
           
@@ -61,11 +63,11 @@
 
         <div class="campo">
           
-          <div class="input-select">
-            <label for="">Envie a capa do seu livro</label>
-            <img src="/public/img/bx_image-add.png" alt="">
-          </div>
-          <input type="file" id="image" onchange="transformarBase64()">
+            <label  id="inputSelect">
+              <h2>Envie a capa do seu livro</h2>
+            <img src="/public/img/bx_image-add.png" alt="" id="imgFile">
+            <input type="file" id="image" onchange="transformarBase64()">
+          </label>     
           <button class="prev">Voltar</button>
           <button class="next">Continuar</button>
         </div>
