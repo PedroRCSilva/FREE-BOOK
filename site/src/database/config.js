@@ -6,7 +6,7 @@ var sqlServerConfig = {
     server: "localhost",
     database: "FREEBOOK",
     user: "root",
-    password: "3db01194",
+    password: "3Db01194.",
     pool: {
         max: 10,
         min: 0,
@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "FREEBOOK",
     user: "root",
-    password: "3db01194",
+    password: "3Db01194.",
 };
 
 function executar(instrucao) {

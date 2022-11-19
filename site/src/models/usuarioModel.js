@@ -27,7 +27,7 @@ function cadastrar(nome, email, senha,sobrenome,img) {
     var instrucao = `
         INSERT INTO USUARIO (nome, email, senha,sobrenome,img) VALUES ('${nome}', '${email}', '${senha}','${sobrenome}','${img}');
     `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: CADASTRO");
     return database.executar(instrucao);
 }
 

@@ -12,7 +12,6 @@ function atualizarVisitaMetrica(idUsuario){
 }
 
 function criarMetrica(email,data){
-  console.log(data)
   console.log("  ************** ENTREI NA QUERY **************")
   var instrucao=`INSERT INTO METRICA(dtMetrica,qtdVisita,fkUsuario) VALUES('${data}',0,(SELECT IDUSUARIO FROM USUARIO WHERE email="${email}"));`;
   return database.executar(instrucao)

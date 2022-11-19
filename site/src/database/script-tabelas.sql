@@ -9,6 +9,7 @@ email varchar(255) UNIQUE,
 senha varchar(100),
 img longtext
 );
+
 CREATE TABLE METRICA
 (
 idMetrica int auto_increment,

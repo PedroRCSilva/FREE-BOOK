@@ -1,5 +1,4 @@
 var usuarioModel = require("../models/usuarioModel");
-var metricaModel = require("../models/metricaModel");
 
 var sessoes = [];
 
@@ -87,9 +86,9 @@ function cadastrar(req, res) {
     usuarioModel
       .cadastrar(nome, email, senha, sobrenome, img)
       .then(function (resultado) {
-        // res.json(resultado);
-      console.log("CADASTROU NO SISTEMA")
+        res.json(resultado);
       })
+
       .catch(function (erro) {
         console.log(erro);
         console.log(

@@ -70,7 +70,8 @@ function proximaEtapa() {
 }
 
 function criarMetricaUsuario(email){
-  fetch(`/medidas/criarMetrica`, {
+  console.log("ENTROU NA FUNÇÃO")
+  fetch("/medidas/criarMetrica", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -184,8 +185,7 @@ function cadastrar() {
   var senhaVar = in_senha.value;
   var confSenha = in_confSenha.value;
   const boll = document.querySelector(".bool");
-  boll.classList.remove("active");
-  console.log(boll)
+  
     
   fetch("/usuarios/cadastrar", {
     method: "POST",
@@ -200,19 +200,15 @@ function cadastrar() {
       emailServer: emailVar,
       senhaServer: senhaVar,
       imgServer: imgVar,
-    }),
-  }).then(function (resposta) {
-    if (resposta.ok) {
-      console.log("resposta: ", resposta);
-    
-      criarMetricaUsuario("pedro.rocha@sptech.school");
-    } else {
-      resposta.text().then((text) => {
-        alert("USUÁRIO JÁ CADASTRADO");
-      });
-    }
-
-  });
+    })
+  }).then((resposta)=>{
+    console.log(resposta)
+      boll.classList.remove("active");
+     criarMetricaUsuario(emailVar);
+    })
+  .catch((erro)=>{
+    console.log(erro);
+  })
 }
 
 
