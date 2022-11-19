@@ -7,7 +7,6 @@
   100% {
     opacity: 1;
   }
-
 }
 
 body {
@@ -200,15 +199,78 @@ header .container a {
   animation: 1s animation-right alternate;
 }
 
+
+@keyframes animationCard {
+  0%{
+    opacity: 0;
+    transform: translateX(800px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+    animation-delay: 5s;
+  }
+  
+  
+}
+@keyframes animationLeft{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
 .validacao {
   position: absolute;
-  bottom: 15vh;
+ top: 5vh;
+ right: 40vw;
+ width: 25vw;
+ min-height: 150px;
   margin-top: 40px;
   color: red;
-  font-size: 1.5em;
+  font-size: 1.3em;
   text-align: center;
+  display: flex;
+  z-index: 9999;
+  border-radius: 20px;
+  flex-direction: column;
+  border: 1px solid #222;
+
+  transform: translateY(-400px);
+  opacity: 0;
+  transition: 1s; 
 }
 
+.validacao.active{
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 1s;
+}
+.span{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+}
+
+.textModal{
+  font-size: 1.5em;
+  background-color: red;
+  color: #222;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 0 0;
+  
+}
 .btns {
   display: flex;
 }

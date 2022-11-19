@@ -29,6 +29,10 @@
   </header>
   <section class="principal">
     <div class="container">
+      <div class="validacao">
+        <div class="textModal"></div>
+        <div class="span"></div>
+      </div>
       <div class="content-text">
         <form action="" class="login">
           <h2>LOGIN</h2>
@@ -54,7 +58,7 @@
       <div class="content-text">
         <form class="cadastro">
           <h2>CADASTRO</h2>
-          <div class="etapa active ">
+          <div class="etapa active">
             <div class="campos">
               <div class="input">
                 <label>
@@ -70,9 +74,7 @@
               </div>
             </div>
             <button type="button" onclick="proximaEtapa()">PROXIMO</button>
-            <div class="validacao">
-
-            </div>
+           
           </div>
 
 
@@ -88,9 +90,6 @@
             <div class="btns">
               <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
               <button type="button" onclick="proximaEtapa()">PRÓXIMA</button>
-            </div>
-            <div class="validacao">
-
             </div>
           </div>
           <div class="etapa">
@@ -113,16 +112,14 @@
               <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
               <button type="button" onclick="proximaEtapa()">PRÓXIMA</button>
             </div>
-            <div class="validacao">
 
-            </div>
           </div>
 
           <div class="etapa">
             <div class="input">
               <label class="input-file" id="labelFile">
                 INSIRA SUA FOTO DE PERFIL
-                <img src="/site/public/img/bx_image-add.png" alt="" id="imgEntrada">
+                <img src="img/bx_image-add.png" alt="" id="imgEntrada">
                 <img src="" id="imgLoading">
                 <input type="file" name="" id="in_img" onchange="verImagem()">
               </label>
@@ -132,7 +129,6 @@
               <button type="button" onclick="voltaEtapa()">RETROCEDER</button>
               <button type="button" onclick="cadastrar()">CADASTRAR</button>
             </div>
-
           </div>
       </div>
       </form>
@@ -155,7 +151,7 @@
       <button class="btn">Faça login</button>
     </div>
 
-    <div class=" text">
+    <div class="text">
       <p>NUNCA ENTROU NO UNIVERSO DA FREEBOOK?<br> FAÇA SEU CADASTRO</p>
       <button class="btn">Cadastre-se</button>
     </div>

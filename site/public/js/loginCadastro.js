@@ -25,47 +25,67 @@ function formatarData() {
   return dtMetrica;
 }
 
+function modalErro(frase1,frase2){
+  var divValidacao = document.querySelector(".validacao");
+  var textModal = document.querySelector(".textModal");
+  var textValidacao = document.querySelector(".span");
+  textModal.innerHTML=frase1;
+  textValidacao.innerHTML=frase2;
+  divValidacao.classList.add("active");
+  setTimeout(()=>{
+    divValidacao.classList.remove("active");
+  },3000)
+}
+
+function modalSucesso(frase1,frase2){
+  var divValidacao = document.querySelector(".validacao");
+  var textModal = document.querySelector(".textModal");
+  var textValidacao = document.querySelector(".span");
+
+  textModal.innerHTML=frase1;
+  textModal.style.background="green";
+  textModal.style.color="white";
+  textModal.style.fontSize="1.1em";
+  textValidacao.innerHTML=frase2;
+
+  divValidacao.classList.add("active");
+  setTimeout(()=>{
+    divValidacao.classList.remove("active");
+  },3000)
+}
 function proximaEtapa() {
   var nomeVar = in_nome.value;
   var sobrenomeVar = in_sobrenome.value;
   var emailVar = in_email.value;
   var senhaVar = in_senha.value;
   var confSenha = in_confSenha.value;
-  var imgVar = in_img.files;
-  var divValidacao = document.querySelectorAll(".validacao");
   var validacao = true;
-  var validacaoEmail =
-    /([a-z0-9]{5,10}\.{0,1}[a-z0-9]+@{1}[a-z]{1}[a-z]{2,20}\.[a-z]{1,10})/;
+  var validacaoEmail = /([a-z0-9]{5,10}\.{0,1}[a-z0-9]+@{1}[a-z]{1}[a-z]{2,20}\.[a-z]{1,10})/;
 
-  if ((contStep == 0 && nomeVar == "") || sobrenomeVar == "") {
+  if (contStep == 0 && (nomeVar == "" || sobrenomeVar == "")) {
     validacao = false;
-    divValidacao[0].innerHTML = "OS CAMPOS DO NOME NÃO PODEM SER VAZIOS !";
+    modalErro("ERRO","OS CAMPOS DO NOME NÃO PODEM SER VAZIOS !")
   }
 
   if (contStep == 1 && !validacaoEmail.test(emailVar)) {
-    validacao = false;
-    divValidacao[1].innerHTML =
-      "EMAIL INVALIDO! CERTIFIQUE-SE QUE<BR> SEU EMAIL SEGUE ESSA ESTRUTURA nome@example.com  ";
+      validacao = false;
+      modalErro("ERRO","EMAIL INVALIDO! CERTIFIQUE-SE QUE<BR> SEU EMAIL SEGUE ESSA ESTRUTURA nome@example.com ")
   }
 
   if (contStep == 2 && senhaVar.length <= 8) {
-    divValidacao[2].innerHTML = "A SENHA DEVE TER MAIS DE 8 CARACTERES ";
     validacao = false;
+    modalErro("ERRO","A SENHA DEVE TER MAIS DE 8 CARACTERES ")
   }
 
   if (confSenha != senhaVar && validacao == true) {
-    divValidacao[2].innerHTML = "AS SENHAS NÃO COINCIDEM";
     validacao = false;
+    modalErro("ERRO","AS SENHAS NÃO COINCIDEM")
   }
 
   if (contStep < stepEtapa.length - 1 && validacao) {
-    
     stepEtapa[contStep].classList.remove("active");
     contStep++;
     stepEtapa[contStep].classList.add("active");
-    divValidacao.forEach((element) => {
-      element.innerHTML = "";
-    });
   }
 }
 
@@ -153,17 +173,16 @@ function login() {
             ).idUsuario;
 
             atualizarVisita(idUsuario);
-
+              modalSucesso("Usuário Encontrado!","Redirecionando para a tela de login");
             setTimeout(() => {
               window.location = "dashboard-book.html";
-            }, 1000);
+            }, 2000);
 
          
           });
         } else {
-          resposta.text().then((text) => {
-            alert(text);
-          });
+          modalErro("Usuário não encontrado!","Tenta outra vez");
+          ;
         }
       })
 
@@ -172,7 +191,8 @@ function login() {
         console.log("Vai");
       });
   } else {
-    alert("INSIRA TODOS OS CAMPOS");
+    modalErro("Erro","Informe o email e a senha")
+    ;
   }
 }
 
@@ -183,10 +203,10 @@ function cadastrar() {
   var sobrenomeVar = in_sobrenome.value;
   var emailVar = in_email.value;
   var senhaVar = in_senha.value;
-  var confSenha = in_confSenha.value;
   const boll = document.querySelector(".bool");
+  const textValidacao = document.querySelector(".span");
+  var divValidacao = document.querySelector(".validacao");
   
-    
   fetch("/usuarios/cadastrar", {
     method: "POST",
     headers: {
@@ -202,9 +222,17 @@ function cadastrar() {
       imgServer: imgVar,
     })
   }).then((resposta)=>{
-    console.log(resposta)
-      boll.classList.remove("active");
-     criarMetricaUsuario(emailVar);
+    if(resposta.ok){
+      modalSucesso("CADASTRO REALIZADO COM SUCESSO!","Agora vamos fazer Login :)")
+      criarMetricaUsuario(emailVar);
+      setTimeout(()=>{
+        boll.classList.remove("active")
+      },2000)
+      
+    }
+    else{
+      modalErro("ERRO","USUÁRIO JÁ CADASTRADO")
+    }
     })
   .catch((erro)=>{
     console.log(erro);
