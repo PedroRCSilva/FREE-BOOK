@@ -1,9 +1,8 @@
 var database = require("../database/config");
 
-function cadastrarLivro(titulo,autor,dtLanc,img,descricao,fkUsuario){
+function cadastrarLivro(titulo,autor,dtLanc,img,descricao,link,fkUsuario,genero){
   console.log("ACESSEI A USUÁRIO MODEL REGISTRANDO USUÁRIO")
-  var instrucao = `INSERT INTO LIVRO(titulo,autor,dtLanc,img,descricao,fkUsuario,downloads) VALUES ('${titulo}','${autor}','${dtLanc}','${img}','${descricao}','${fkUsuario}',0);`;
-
+  var instrucao = `INSERT INTO LIVRO(titulo,autor,dtLanc,img,descricao,fkUsuario,url,downloads,genero) VALUES ('${titulo}','${autor}','${dtLanc}','${img}','${descricao}','${fkUsuario}','${link}',0,'${genero}');`;
   console.log("EXECUTANDO INSTRUÇÃO"+instrucao)
   return database.executar(instrucao);
 }

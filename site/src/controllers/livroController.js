@@ -33,10 +33,12 @@ function cadastrarLivro(req, res) {
   var dtLanc = req.body.dtLancServer;
   var img = req.body.imgServer;
   var descricao = req.body.descricaoServer;
+  var link = req.body.urlServer;
   var fkUsuario = req.body.fkUsuarioServer;
+  var genero = req.body.generoServer;
 
   livroModel
-    .cadastrarLivro(titulo, autor, dtLanc, img, descricao, fkUsuario)
+    .cadastrarLivro(titulo, autor, dtLanc, img, descricao,link,fkUsuario,genero)
     .then((resultado) => {
       res.json(resultado);
     })

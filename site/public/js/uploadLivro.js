@@ -89,7 +89,7 @@ function transformarBase64() {
   var lerImagem = new FileReader();
   lerImagem.onload = (arquivo) => {
     imgVar = arquivo.target.result;
-  teste.remove()
+    teste.remove()
     imgFile.src=imgVar;
     imgFile.style.width="100%"
     imgFile.style.height="100%"
@@ -104,6 +104,8 @@ function cadastrarLivro() {
   var autorVar = infoSection.nome+" "+infoSection.sobrenome;
   var descricaoVar = in_descricao.value;
   var fkUsuarioVar = infoSection.idUsuario;
+  var urlVar = in_url.value;
+  var generoVar = document.querySelector("#in_genero select").value;
   dtLancVar = dtLancVar.toLocaleDateString({
       year: "numeric",
       month: "2-digit",
@@ -121,6 +123,8 @@ function cadastrarLivro() {
       dtLancServer: dtLancVar,
       imgServer: imgVar,
       descricaoServer: descricaoVar,
+      urlServer:urlVar,
+      generoServer:generoVar,
       fkUsuarioServer: fkUsuarioVar,
     }),
   })

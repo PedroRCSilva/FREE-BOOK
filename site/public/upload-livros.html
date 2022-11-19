@@ -47,22 +47,40 @@
         <div class="campo active">
           <label >Informe um titulo para seu livro</label>
           <input type="text" id="in_titulo">
-
+          <br>
+          <label>Informe o genero do seu livro</label><br><br>
+          <div id="in_genero">
+          <select type="text" >
+            <option value="">Informe o genero do seu livro</option>
+            <option value="Ficção">Ficção</option>
+            <option value="Infantil">Infantil</option>
+            <option value="Fantasia">Fantasia</option>
+            <option value="Ficção Literiaria">Ficção literaria</option>
+            <option value="Romance">Romance</option>
+            <option value="Ficção Cientifica">Ficção cientifica</option>
+            <option value="Thriller e suspense">Thriller e Suspense</option>
+            <option value="Não-ficção">Não-ficção</option>
+            <option value="Humanidade e Ciencias Sociais ">Humanidade e ciencias sociais</option>
+            <option value="Religião e Espiritualidade">Religião e espiritualidade</option>
+            <option value="Tecnologia">Tecnologia</option>
+          </select>
+        </div>
+        <br><br><br>
           <button class="next">Continuar</button>
         </div>
 
         <div class="campo">
           <label for="">Escreva uma descrição para seu livro</label>
-          <div class="lengthText">0/1000</div>
-          <textarea type="text" id="in_descricao" onkeyup="calculandoTamanhoTextArea()"></textarea>
+          <div class="textArea">
           
+          <textarea type="text" id="in_descricao" onkeyup="calculandoTamanhoTextArea()"></textarea>
+          <div class="lengthText">0/1000</div>
+        </div>
           <button class="prev">Voltar</button>
           <button class="next">Continuar</button>
-          
         </div> 
 
         <div class="campo">
-          
             <label  id="inputSelect">
               <h2>Envie a capa do seu livro</h2>
             <img src="/public/img/bx_image-add.png" alt="" id="imgFile">
