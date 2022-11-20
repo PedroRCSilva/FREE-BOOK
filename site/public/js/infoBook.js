@@ -23,8 +23,14 @@ var idLivro = sessionStorage.getItem("BOOK");
         descricao.innerHTML = json[0].descricao;
         autor.innerHTML = json[0].autor;
         titulo.innerHTML = json[0].titulo;
+        titulo.innerHTML = json[0].titulo;
         data.innerHTML = dataFormatada;
+        inUrl.addEventListener("click",()=>{
+          window.open(json[0].url)
+        })
+        genero.innerHTML=json[0].genero
         imgLivro.src = json[0].img;
+        downloads.innerHTML=json[0].downloads
     })})
     .catch((erro) => {
       console.log("ERRO NA REQUISICAO" + erro);
@@ -32,7 +38,7 @@ var idLivro = sessionStorage.getItem("BOOK");
 
     
   function atualizarDownloads(){
-    fetch(`livro/atualizarLivro/${idLivro}`,{
+    fetch(`/livro/atualizarLivro/${idLivro}`,{
       method:"PUT",
       headers:{
         "Content-Type": "application/json",
@@ -43,7 +49,7 @@ var idLivro = sessionStorage.getItem("BOOK");
       console.log(erro)
     })
   }
-  const btn = document.querySelector("#url");
+  const btn = document.querySelector("#inUrl");
   btn.addEventListener("click",atualizarDownloads);
   
 
