@@ -65,7 +65,7 @@ body {
 }
 
 #graficPizza {
-  width: 70% !important;
+  width: 80% !important;
   height: 80% !important;
 }
 
@@ -93,14 +93,6 @@ body {
   align-items: flex-end;
 }
 
-.book {
-  width: 150px;
-}
-
-.book img {
-  width: 100%;
-  height: auto;
-}
 
 .cards {
 
@@ -149,4 +141,54 @@ body {
 
 .card span:nth-child(1) {
   font-size: 1.5em;
+}
+
+.books{
+  display: flex;
+  justify-content: center;
+}
+
+.book {
+  width: 180px;
+  height: max-content;
+  object-fit: cover;
+  border-radius: 10px;
+  display: flex;
+  column-gap: 20px;
+}
+
+.book img {
+  object-fit: cover;
+  width: 70%;
+  height: 180px;
+  border-radius: 10px;
+}
+
+.info-book h2{
+  font-size: 1.2em;
+  text-align: left;
+}
+
+
+.info-book h3{
+  font-weight: 500;
+  color: #019974  ;
+  font-size: 1em;
+  text-align: left;
+}
+
+.info-book{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.info-book button{
+  width: 120px;
+ padding: 10px;
+}
+
+.info-book.active{
+  display: flex;
 }
