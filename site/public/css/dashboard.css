@@ -1,18 +1,24 @@
 .dashboard {
   width: 100%;
-height: 100vh;
+  height: 100vh;
   display: flex;
 }
 
-.nav-dash {
-  flex:1;
+.nav-dash-full {
+  flex: 1;
   height: 100vh;
+
+}
+
+.nav-dash {
+  position: fixed;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: #222;
-
+  padding: 0 20px;
 }
 
 .profile {
@@ -24,28 +30,30 @@ height: 100vh;
 
 }
 
-.profile img{
+.profile img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.logo{
+.logo {
   text-align: center;
   margin-bottom: 20px;
   font-size: 2em;
   color: #fff;
 }
+
 .nome {
   text-align: center;
   font-size: 1.4em;
   margin-bottom: 20px;
   color: #fff;
 }
-.nome span{
+
+.nome span {
   color: #fff;
- 
+
 }
 
 .nav-dash ul {
@@ -62,25 +70,22 @@ height: 100vh;
   cursor: pointer;
 }
 
-.nav-dash>button{
-background-color: #019974;
-width: 50%;
-color: #fff;
+.nav-dash>button {
+  background-color: #019974;
+  width: 50%;
+  color: #fff;
 }
 
-.content-dash{
-
+.content-dash {
   height: 100%;
   flex: 4;
   display: flex;
   flex-direction: column;
 }
 
-
-
-.indicators{
-min-height: 300px;
-height: auto;
+.indicators {
+  min-height: 300px;
+  height: auto;
   background-color: #fff;
   display: flex;
   column-gap: 20px;
@@ -88,27 +93,28 @@ height: auto;
   justify-content: space-around;
 }
 
-.indicators h2{
+.indicators h2 {
   font-size: 2em;
   text-align: center;
 }
-.indicators>div:nth-child(1){
+
+.indicators>div:nth-child(1) {
   display: flex;
   justify-content: center;
 }
 
-.button-upload{
- width: 30px;
+.button-upload {
+  width: 30px;
 }
 
 
-.indicators .group-indicators{
+.indicators .group-indicators {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.square-indicator{
+.square-indicator {
   width: 236px;
   height: 173px;
   border: 1px solid #222;
@@ -117,44 +123,43 @@ height: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   text-align: center;
 }
 
-.square-indicator h2{
+.square-indicator h2 {
   color: #fff;
   font-size: 1.2em;
   color: #222;
 }
 
 
-.square-indicator span{
+.square-indicator span {
   color: #fff;
   font-size: 40px !important;
   color: #019974;
 }
 
-.book-list{
+.book-list {
   height: 100%;
   overflow-y: scroll;
   margin-top: 20px;
 }
 
-.book-list::-webkit-scrollbar{
+.book-list::-webkit-scrollbar {
   width: 5px;
 }
 
-.book-list::-webkit-scrollbar-thumb{
+.book-list::-webkit-scrollbar-thumb {
   background-color: #222;
 }
 
-.book-list>h2{
+.book-list>h2 {
   font-size: 2em;
   text-align: center;
   margin-bottom: 50px;
 }
 
-.book-list>h2::after{
+.book-list>h2::after {
   content: '';
   display: block;
   width: 40%;
@@ -163,15 +168,15 @@ height: auto;
   margin: auto;
 }
 
-.group-book{
+.group-book {
   display: grid;
-  grid-template-columns: repeat(4,250px);
+  grid-template-columns: repeat(4, 250px);
   row-gap: 20px;
   justify-content: space-around;
   padding: 10px 0;
 }
 
-.content-book{
+.content-book {
   background-color: #222;
   padding: 15px;
   text-align: center;
@@ -179,33 +184,33 @@ height: auto;
   height: 420px;
 }
 
-.content-book h2{
+.content-book h2 {
   color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.content-book h3{
+.content-book h3 {
   color: #019974;
 }
 
 .content-book .img {
   width: 90%;
-  
- margin: auto;
- 
+
+  margin: auto;
+
 }
 
-.img img{
+.img img {
   height: 270px;
   width: 100%;
   object-fit: cover;
   border-radius: 10px;
-  
+
 }
 
-.content-book button{
+.content-book button {
   margin: 10px auto;
   display: block;
   background-color: #019974;
@@ -215,11 +220,11 @@ height: auto;
 
 
 
-.loading{
+.loading {
   display: flex;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   backdrop-filter: blur(10px);
   align-items: center;
@@ -229,24 +234,26 @@ height: auto;
   flex-direction: column;
 }
 
-.animacao{
+.animacao {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  
+
 }
 
 @keyframes loading {
-  to{
+  to {
     transform: rotate(0deg);
   }
-  from{
-  
+
+  from {
+
     transform: rotate(360deg);
- 
+
   }
 }
-.animacao div{
+
+.animacao div {
   box-sizing: border-box;
   display: block;
 
@@ -255,6 +262,6 @@ height: auto;
   margin: 8px;
   border: 8px solid #fff;
   border-radius: 50%;
-  border-color: transparent transparent transparent #fff ;
-  animation: 2s  loading linear infinite;
+  border-color: transparent transparent transparent #fff;
+  animation: 2s loading linear infinite;
 }

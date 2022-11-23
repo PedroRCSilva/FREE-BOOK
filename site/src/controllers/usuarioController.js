@@ -124,6 +124,35 @@ function exibirQtdLivros(req, res) {
     });
 }
 
+function contaAtivasController(req,res){
+  usuarioModel.contaAtivas().then((resposta)=>{
+    res.json(resposta)
+  }).catch((erro)=>{
+    console.log(erro.sqlMessage)
+  });
+}
+
+function quantidadeTotalDownloadsController(req,res){
+  var idUsuario = req.params.idUsuario;
+  usuarioModel.contaAtivas(idUsuario).then((resposta)=>{
+    console.log(res.json(resposta));
+  }).catch((erro)=>{
+    console.log(erro.sqlMessage);
+  })
+  ;
+}
+
+function downloadTopUsuarioController(req,res){
+  usuarioModel.downloadsTopUsuario().then((resposta)=>{
+   res.json(resposta)
+  }).catch((erro)=>{
+    console.log(erro.sqlMessage)
+  });
+  ;
+}
+
+
+
 module.exports = {
   entrar,
   cadastrar,
@@ -131,4 +160,7 @@ module.exports = {
   testar,
   listarLivros,
   exibirQtdLivros,
+  quantidadeTotalDownloadsController,
+  downloadTopUsuarioController,
+  contaAtivasController
 };

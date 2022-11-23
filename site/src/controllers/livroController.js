@@ -38,7 +38,16 @@ function cadastrarLivro(req, res) {
   var genero = req.body.generoServer;
 
   livroModel
-    .cadastrarLivro(titulo, autor, dtLanc, img, descricao,link,fkUsuario,genero)
+    .cadastrarLivro(
+      titulo,
+      autor,
+      dtLanc,
+      img,
+      descricao,
+      link,
+      fkUsuario,
+      genero
+    )
     .then((resultado) => {
       res.json(resultado);
     })
@@ -48,7 +57,7 @@ function cadastrarLivro(req, res) {
 }
 
 function atualizarDownloads(req, res) {
-var idLivro = req.params.idLivro;
+  var idLivro = req.params.idLivro;
   livroModel
     .atualizarDownloads(idLivro)
     .then((result) => {
@@ -58,9 +67,28 @@ var idLivro = req.params.idLivro;
       console.log(erro);
     });
 }
+
+function livroTopDownloadsController(req,res) {
+  livroModel.livroTopDownloads().then((resposta)=>{
+    res.json(resposta)
+  }).catch((erro)=>{
+    console.log(erro.sqlMessage)
+  });
+}
+
+function porcentagemLivroGeneroController(req,res) {
+  livroModel.porcentagemLivroGenero().then((resposta)=>{
+    res.json(resposta)
+  }).catch((erro)=>{
+    console.log(erro.sqlMessage)
+  });
+}
+
 module.exports = {
   cadastrarLivro,
   buscarLivro,
   buscarLivroSelecionado,
   atualizarDownloads,
+  livroTopDownloadsController,
+  porcentagemLivroGeneroController
 };

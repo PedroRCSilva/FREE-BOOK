@@ -1,0 +1,145 @@
+.analitics {
+  flex: 1 !important;
+  display: flex !important;
+}
+
+body {
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  height: 100vh !important;
+  width: 200vw !important;
+  display: flex;
+}
+
+.analitics .nav-dash-analitics {
+  padding: 0 18px;
+}
+
+.dashboard {
+  width: 100vw;
+}
+
+.info-analitics {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  margin: auto;
+  background-color: #019974;
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  grid-template-rows: 2fr 1.5fr;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.grafic {
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#graficBar {
+  width: 70% !important;
+  height: 90% !important;
+}
+
+.pizza {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#graficPizza {
+  width: 70% !important;
+  height: 80% !important;
+}
+
+
+.pizza {
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+.top-book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 18px 0;
+  row-gap: 40px;
+}
+
+.top-book h2 {
+  color: #222;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+.books {
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.book {
+  width: 150px;
+}
+
+.book img {
+  width: 100%;
+  height: auto;
+}
+
+.cards {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  padding: 15px;
+  width: 100%;
+  height: 107px;
+  border-radius: 10px;
+}
+
+.card:nth-child(1) {
+  background-color: #fff
+}
+
+.card:nth-child(2) {
+  background-color: #222;
+}
+
+
+.card:nth-child(2) h2 {
+  color: #019974;
+}
+
+.card:nth-child(2) span{
+  font-size: 2em;
+  color: #019974;
+}
+
+.card div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card div div {
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.card span:nth-child(1) {
+  font-size: 1.5em;
+}

@@ -23,10 +23,22 @@ function atualizarDownloads(idLivro){
   var instrucao = `UPDATE LIVRO SET downloads=downloads+1 where idLivro=${idLivro};`;
   return database.executar(instrucao)
 }
+
+function porcentagemLivroGenero(){
+  var instrucao = "SELECT LIVRO.GENERO, COUNT(LIVRO.IDLIVRO) FROM LIVRO GROUP BY GENERO;"
+  return database.executar(instrucao)
+}
+
+function livroTopDownloads(){
+  var instrucao="SELECT * FROM LIVRO ORDER BY DOWNLOADS DESC LIMIT 3;"
+  return database.executar(instrucao)
+}
 module.exports =
 {
   cadastrarLivro,
   buscarLivro,
   buscarLivroSelecionado,
   atualizarDownloads,
+  livroTopDownloads,
+  porcentagemLivroGenero
 }

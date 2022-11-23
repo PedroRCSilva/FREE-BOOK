@@ -33,20 +33,44 @@ function cadastrar(nome, email, senha,sobrenome,img) {
 
 
 function listarLivros(idUsuario){
+    console.log("ENTREI NA MODEL LISTAR LIVROS, EXECUTANDO A INSTRUÇÃO");
     var instrucao = `SELECT LIVRO.img,LIVRO.descricao,LIVRO.titulo,LIVRO.autor,LIVRO.dtLanc FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE IDUSUARIO=${idUsuario};`
     return database.executar(instrucao);
 }
 
 function QuantidadeLivros(idUsuario){
+    console.log("ENTREI NA MODEL QuantidadeLivros, EXECUTANDO A INSTRUÇÃO");
     var instrucao = `SELECT COUNT(LIVRO.TITULO) AS VALOR FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE FKUSUARIO=${idUsuario};`;
     return database.executar(instrucao);
 }
 
-'                                                                                                                                       '
+function downloadsTopUsuario(){
+    console.log("ENTREI NA MODEL downloadsTopUsuario, EXECUTANDO A INSTRUÇÃO");
+
+    var instrucao = "SELECT USUARIO.NOME, USUARIO.SOBRENOME,LIVRO.DOWNLOADS FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO ORDER BY DOWNLOADS DESC LIMIT 6;"
+    return database.executar(instrucao);
+}
+
+function quantidadeTotalDownloads(idUsuario){
+console.log("ENTREI NA MODEL quantidadeTotalDownloads, EXECUTANDO A INSTRUÇÃO");
+var instrucao = `SELECT * FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE USUARIO.IDUSUARIO=${idUsuario}`;
+
+return database.executar(instrucao);
+}
+
+function contaAtivas(){
+    console.log("ENTREI NA MODEL contaAtivas, EXECUTANDO A INSTRUÇÃO");
+    var instrucao = "SELECT COUNT(IDUSUARIO) FROM USUARIO";
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     listarLivros,
-    QuantidadeLivros
+    QuantidadeLivros,
+    quantidadeTotalDownloads,
+    downloadsTopUsuario,
+    contaAtivas,
 };

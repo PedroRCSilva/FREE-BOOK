@@ -19,5 +19,12 @@ router.put("/atualizarLivro/:idLivro",function(req,res){
   livroController.atualizarDownloads(req,res);
 })
 
+router.get("/porcentagemLivro",(req,res)=>{
+  livroController.porcentagemLivroGeneroController(req,res);
+})
+
+router.get("/topLivro",(req,res)=>{
+  livroController.livroTopDownloadsController(req,res);
+})
 
 module.exports= router;
