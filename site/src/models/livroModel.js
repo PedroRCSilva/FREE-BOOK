@@ -25,7 +25,7 @@ function atualizarDownloads(idLivro){
 }
 
 function porcentagemLivroGenero(){
-  var instrucao = "SELECT LIVRO.GENERO, COUNT(LIVRO.IDLIVRO) FROM LIVRO GROUP BY GENERO;"
+  var instrucao = "SELECT LIVRO.GENERO, COUNT(LIVRO.IDLIVRO) AS QUANTIDADE FROM LIVRO GROUP BY GENERO;"
   return database.executar(instrucao)
 }
 
