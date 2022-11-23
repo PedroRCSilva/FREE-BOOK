@@ -4,7 +4,7 @@
 }
 
 body {
-  overflow-x: scroll !important;
+  overflow-x: hidden !important;
   overflow-y: hidden !important;
   height: 100vh !important;
   width: 200vw !important;
@@ -38,10 +38,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.grafic h2{
+  font-size: 1.5em;
 }
 
 #graficBar {
-  width: 70% !important;
+  width: 80% !important;
   height: 90% !important;
 }
 
@@ -50,6 +56,12 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+.pizza h2{
+  font-size: 1.5em;
 }
 
 #graficPizza {
@@ -57,11 +69,6 @@ body {
   height: 80% !important;
 }
 
-
-.pizza {
-  background-color: #fff;
-  border-radius: 30px;
-}
 
 .top-book {
   display: flex;

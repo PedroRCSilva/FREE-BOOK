@@ -94,5 +94,19 @@ function dadosLivroGenero() {
 }
 
 
-dadosLivroGenero();
-dadosTopUsuario();
+
+  btnAnalise.addEventListener("click",()=>{
+    const divAnalise = document.querySelector("body");
+    if(window.scrollX==0){
+      console.log("Teste");
+    window.scroll(divAnalise.clientWidth,0);
+    
+    }
+    else{
+      window.scroll(0,0);
+    }
+  })
+
+  window.scroll(0,0);
+  dadosLivroGenero();
+  dadosTopUsuario();
