@@ -107,6 +107,43 @@ function dadosLivroGenero() {
     }
   })
 
+  function criarTopLivro(objeto){
+    var divBooks=document.querySelector(".books");
+    for(var i =0; i<objeto.length;i++){
+    divBooks.innerHTML+=
+    `<div class="book">
+    <img src=${objeto[i].img} alt="">
+    <div class="info-book">
+      <h2>${objeto[i].titulo}</h2>
+      <h3>${objeto[i].autor}</h3>
+      <button onclick="verDescricaoCompleta(${objeto[i].idLivro})">Saiba mais</button>
+    </div>
+  </div>`
+}
+  }
+
+  function topLivro(){
+    fetch("/livro/topLivro",{
+      method:'GET',
+      headers:{
+        'Content-type':'application/json'
+      }
+    }).then((resposta)=>{
+      resposta.json().then((json)=>{
+      criarTopLivro(json);
+      })
+    }).catch((erro)=>{
+      console.log(erro)
+    })
+  }
   window.scroll(0,0);
+
+  
+
+
+  
+  topLivro();
   dadosLivroGenero();
   dadosTopUsuario();
+
+  
