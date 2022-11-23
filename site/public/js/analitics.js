@@ -1,21 +1,39 @@
-function plotarGrafico(){
-  var cores = ["#264653", "#2A9D8F", "E9C46A", "#F4A261", "#E76F51"];
-  var labelUsuario = ['Pedro','Murilo','Afonso'];
-  var labelLivro = ['Pedro','Murilo','Afonso'];
-  var dadosUsuario = [22,11,13]
-  var dadosLivro = [22,33,22]
-  const data = [
-    {
-      labels: labelUsuario,
-      datasets: [
-        {
-          label: "Quantidade de Downloads",
-          backgroundColor: cores,
-          data: dadosUsuario,
-        },
-      ]
-    },
-    // SEGUNDO GRÁFICO 
+var cores = ["#264653", "#2A9D8F", "E9C46A", "#F4A261", "#E76F51"];
+function plotarGraficoBar(label,dados){
+  var labelUsuario = label;
+  var dadosUsuario = dados;
+  console.log(labelUsuario,dadosUsuario)
+  const data = {
+    labels: labelUsuario,
+    datasets: [
+      {
+        label: "Quantidade de Downloads",
+        backgroundColor: cores,
+        data: dadosUsuario,
+      },
+    ]
+  }
+
+const config = {
+  type:"bar",
+  data:data,
+  options:{
+    scales:{
+      y:{
+        min:0,
+        max:50,
+      }
+    }
+  }
+}
+return  new Chart(document.getElementById("graficBar"),config);
+}
+
+
+function plotarGraficoPizza(label,dados){
+    var labelLivro = label;
+  var dadosLivro = dados;
+  const data = 
     {
       labels: labelLivro,
       datasets: [
@@ -26,31 +44,12 @@ function plotarGrafico(){
         }
       ]
     }
-  ]
-
-  const config = [
-    // GRÁFICO DE BARRA 
-    {
-      type: "bar",
-      data: data[0],
-      options: {
-        scales: {
-          y: {
-            suggestedMin: 10,
-            suggestedMax: 100,
-          },
-        }
-      }
-    },
-    // GRAFICO DE PIZZA 
+  const config = 
     {
       type: "doughnut",
       data: data[1],
-    },
-  ];
-  
-  const graficoBar = new Chart(document.getElementById("graficBar"), config[0]);
-  const graficPizza = new Chart(document.getElementById("graficPizza"),config[1]);
+    };
+  return new Chart(document.getElementById("graficPizza"), config);
 };
 
 
@@ -62,26 +61,25 @@ function dadosTopUsuario(){
     }
   }).then((res)=>{
     res.json().then((json)=>{
-      console.log(json)
+      var nomes = [];
+      var dados = []
+      for(var i =0;i<json.length;i++){
+        nomes.push(`${json[i].NOME} ${json[i].SOBRENOME}`);
+        dados.push(json[i].DOWNLOADS);
+        console.log(nomes,dados)
+      }
+      plotarGraficoBar(nomes,dados);
     })
   }).catch((erro)=>{
     console.log(erro);
   })
 }
 
-function buscarDadosLivro(){
 
-}
 
-function contabilizarContas(){
 
-}
-
-function contabilizarDownloads(){
-
-}
 dadosTopUsuario();
-plotarGrafico();
+
 
 
 
