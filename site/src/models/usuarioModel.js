@@ -34,7 +34,7 @@ function cadastrar(nome, email, senha,sobrenome,img) {
 
 function listarLivros(idUsuario){
     console.log("ENTREI NA MODEL LISTAR LIVROS, EXECUTANDO A INSTRUÇÃO");
-    var instrucao = `SELECT LIVRO.img,LIVRO.descricao,LIVRO.titulo,LIVRO.autor,LIVRO.dtLanc FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE IDUSUARIO=${idUsuario};`
+    var instrucao = `SELECT * FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE IDUSUARIO=${idUsuario};`
     return database.executar(instrucao);
 }
 
@@ -53,14 +53,14 @@ function downloadsTopUsuario(){
 
 function quantidadeTotalDownloads(idUsuario){
 console.log("ENTREI NA MODEL quantidadeTotalDownloads, EXECUTANDO A INSTRUÇÃO");
-var instrucao = `SELECT * FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE USUARIO.IDUSUARIO=${idUsuario}`;
+var instrucao = `SELECT SUM(livro.downloads) as downloads FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE USUARIO.IDUSUARIO=${idUsuario}`;
 
 return database.executar(instrucao);
 }
 
 function contaAtivas(){
     console.log("ENTREI NA MODEL contaAtivas, EXECUTANDO A INSTRUÇÃO");
-    var instrucao = "SELECT COUNT(IDUSUARIO) FROM USUARIO";
+    var instrucao = "SELECT COUNT(IDUSUARIO) AS CONTAS FROM USUARIO";
     return database.executar(instrucao);
 }
 

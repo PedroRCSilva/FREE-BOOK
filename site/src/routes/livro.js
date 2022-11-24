@@ -27,4 +27,8 @@ router.get("/topLivro",(req,res)=>{
   livroController.livroTopDownloadsController(req,res);
 })
 
+router.get("/totalPlataforma",(req,res)=>{
+  livroController.totalDownloadsPlataforma(req,res);
+})
+
 module.exports= router;

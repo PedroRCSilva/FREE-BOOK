@@ -33,6 +33,11 @@ function livroTopDownloads(){
   var instrucao="SELECT * FROM LIVRO ORDER BY DOWNLOADS DESC LIMIT 3;"
   return database.executar(instrucao)
 }
+
+function totalDownloadsPlataforma(){
+  var intrucao = 'SELECT SUM(LIVRO.DOWNLOADS) AS DOWNLOADSTOTAL FROM LIVRO;';
+  return database.executar(intrucao);
+}
 module.exports =
 {
   cadastrarLivro,
@@ -40,5 +45,6 @@ module.exports =
   buscarLivroSelecionado,
   atualizarDownloads,
   livroTopDownloads,
-  porcentagemLivroGenero
+  porcentagemLivroGenero,
+  totalDownloadsPlataforma
 }

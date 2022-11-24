@@ -84,11 +84,23 @@ function porcentagemLivroGeneroController(req,res) {
   });
 }
 
+function totalDownloadsPlataforma(req,res){
+  var idUsuario = req.params.idUsuario;
+  livroModel.totalDownloadsPlataforma(idUsuario).then((resultado)=>{
+    res.json(resultado);
+  }).catch((erro)=>{
+    console.log(erro)
+  })
+}
+
+
+
 module.exports = {
   cadastrarLivro,
   buscarLivro,
   buscarLivroSelecionado,
   atualizarDownloads,
   livroTopDownloadsController,
-  porcentagemLivroGeneroController
+  porcentagemLivroGeneroController,
+  totalDownloadsPlataforma,
 };

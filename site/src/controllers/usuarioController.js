@@ -134,7 +134,7 @@ function contaAtivasController(req,res){
 
 function quantidadeTotalDownloadsController(req,res){
   var idUsuario = req.params.idUsuario;
-  usuarioModel.contaAtivas(idUsuario).then((resposta)=>{
+  usuarioModel.quantidadeTotalDownloads(idUsuario).then((resposta)=>{
     console.log(res.json(resposta));
   }).catch((erro)=>{
     console.log(erro.sqlMessage);
@@ -162,5 +162,5 @@ module.exports = {
   exibirQtdLivros,
   quantidadeTotalDownloadsController,
   downloadTopUsuarioController,
-  contaAtivasController
+  contaAtivasController,
 };

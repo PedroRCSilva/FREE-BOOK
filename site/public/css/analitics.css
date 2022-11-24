@@ -42,7 +42,7 @@ body {
   padding: 10px;
 }
 
-.grafic h2{
+.grafic h2 {
   font-size: 1.5em;
 }
 
@@ -60,8 +60,9 @@ body {
   border-radius: 30px;
 }
 
-.pizza h2{
-  font-size: 1.5em;
+.pizza h2 {
+  font-size: 1em;
+  text-align: center;
 }
 
 #graficPizza {
@@ -71,6 +72,7 @@ body {
 
 
 .top-book {
+  min-height: 330px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,16 +90,19 @@ body {
 }
 
 @keyframes booksAnimation {
-  0%{
+  0% {
     width: 0;
     opacity: 0;
   }
-  100%{
+
+  100% {
     width: 100%;
     opacity: 1;
   }
 }
+
 .books {
+  min-height: 250px;
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -118,29 +123,30 @@ body {
 
 .book img {
   object-fit: cover;
-  width: 130px;
-  height: 180px;
+  width: 160px;
+  height: 230px;
   border-radius: 10px;
 }
 
-.info-book h2{
+.info-book h2 {
   font-size: 1.2em;
   text-align: left;
 }
 
 
-.info-book h3{
+.info-book h3 {
   font-weight: 500;
-  color: #019974  ;
+  color: #019974;
   font-size: 1em;
   text-align: left;
 }
 
 
-.info-book::-webkit-scrollbar{
-display: none;
+.info-book::-webkit-scrollbar {
+  display: none;
 }
-.info-book{
+
+.info-book {
   display: flex;
   overflow-x: scroll;
   width: 0;
@@ -150,9 +156,9 @@ display: none;
   transition: 0.5s;
 }
 
-.info-book button{
+.info-book button {
   width: 120px;
- padding: 10px;
+  padding: 10px;
 }
 
 
@@ -184,7 +190,7 @@ display: none;
   color: #019974;
 }
 
-.card:nth-child(2) span{
+.card:nth-child(2) span {
   font-size: 2em;
   color: #019974;
 }
@@ -205,4 +211,8 @@ display: none;
   font-size: 1.5em;
 }
 
-
+.card #totalPorcento {
+  font-size: 0.9em !important;
+  text-align: right;
+  color: #019974;
+}

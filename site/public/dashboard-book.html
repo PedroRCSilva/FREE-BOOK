@@ -10,40 +10,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dashboard.css">
-  <script>
-    var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
-    if (infoUsuario == undefined) {
-      window.location = "login-cadastro.html"
-    }
-  </script>
+  <link rel="stylesheet" href="css/analitics.css">
   <title>FREEBOOK - HOME </title>
 </head>
 
 <body>
 
   <section class="dashboard">
-    <div class="nav-dash">
-      <div>
-        <div class="logo">FREE BOOK</div>
-        <div class="profile"><img src="" alt="" id="img_perfil"></div>
-        <div class="nome">Olá, <span></span></div>
-        <ul>
-          <a href="dashboard-book.html"><li>EXPLORAR MEUS LIVROS</li></a>
-          <a href="dashboard-my-book.html"><li>MEUS LIVROS</li></a>
-          <a href="upload-livros.html"><li>FAZER UPLOAD</li></a>
-        </ul>
+    <div class="nav-dash-full">
+      <div class="nav-dash">
+        <div>
+          <div class="logo">FREE BOOK</div>
+          <div class="profile"><img src="" alt="" id="img_perfil"></div>
+          <div class="nome">Olá, <span></span></div>
+          <ul>
+            <a href="dashboard-book.html">
+              <li>EXPLORAR MEUS LIVROS</li>
+            </a>
+            <a href="dashboard-my-book.html">
+              <li>MEUS LIVROS</li>
+            </a>
+            <a href="upload-livros.html">
+              <li>FAZER UPLOAD</li>
+            </a>
+              <li id="btnAnalise">Ver análise de livros</li>
+          </ul>
+        </div>
+        <button class="sairSessao" onclick="sairSessao()">SAIR</button>
       </div>
-      <button class="sairSessao" onclick="sairSessao()">SAIR</button>
     </div>
-
     <div class="content-dash">
       <div class="indicators">
-        
-          <h2>PRINCIPAIS INDICADORES</h2>
-       
-        
+
+        <h2>PRINCIPAIS INDICADORES</h2>
+
+
         <div class="group-indicators">
-  
+
           <div class="square-indicator">
             <h2>LIVROS PUBLICADOS</h2>
             <span id="livros">40</span>
@@ -54,16 +57,17 @@
           </div>
           <div class="square-indicator">
             <h2>QUANTIDADE DE VISITAS</h2>
-            <span id="qtdVisita">0</span>
+            <span id="qtdVisita">40</span>
           </div>
         </div>
       </div>
-
       <div class="book-list">
-        <h2>LIVROS DA PLATAFORMA</h2>
+        <h2>LIVROS PUBLICADOS</h2>
         <div class="group-book">
+
         </div>
       </div>
+    </div>
     </div>
 
     <div class="loading">
@@ -72,11 +76,58 @@
         <div></div>
       </div>
     </div>
-  </section>
-  <script src="js/dashboardBook.js"></script>
-  <script src="js/indicadoresDashboard.js"></script>
-  <script src="js/navBarDashboard.js"></script>
 
+
+  </section>
+  <section class="analitics">
+    <div class="nav-dash-analitics">
+      <div>
+        <div class="logo"></div>
+        <div class="profile"></div>
+        <div class="nome"></div>
+        <ul>
+      </div>
+      <button class="sairSessao" onclick="sairSessao()" style="border:none;"></button>
+    </div>
+
+    <div class="info-analitics">
+      <div class="grafic">
+        <h2>USUÁRIOS QUE TIVERAM OS LIVROS MAIS BAIXADOS</h2>
+        <canvas id="graficBar"></canvas>
+      </div>
+      <div class="pizza">
+        <h2>LIVROS DISPONIVEIS NA<br> PLATAFORMA POR GENERO</h2>
+        <canvas id="graficPizza"></canvas>
+      </div>
+      <div class="top-book">
+        <h2>LIVROS MAIS BAIXADOS DA PLATAFORMA</h2>
+        <div class="books">
+          
+        
+        </div>
+      </div>
+      <div class="cards">
+
+        <div class="card">
+          <h2>TOTAL DO SEUS LIVROS</h2>
+          <div>
+            <div><span id="qtdDownload">40</span> Downloads </div><span id="totalPorcento">50%</span>
+          </div>
+        </div>
+        <div class="card">
+          <h2>CONTAS ATIVAS</h2>
+          <span id="qtdConta">40</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
 </body>
+
+<script src="js/indicadoresDashboard.js"></script>
+<script src="js/navBarDashboard.js"></script>
+<script src="js/dashboardBook.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/analitics.js"></script>
 
 </html>
