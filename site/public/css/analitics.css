@@ -78,6 +78,7 @@ body {
   border-radius: 30px;
   padding: 18px 0;
   row-gap: 40px;
+  transition: 1s;
 }
 
 .top-book h2 {
@@ -86,16 +87,77 @@ body {
   font-size: 1.8em;
 }
 
+@keyframes booksAnimation {
+  0%{
+    width: 0;
+    opacity: 0;
+  }
+  100%{
+    width: 100%;
+    opacity: 1;
+  }
+}
 .books {
   border-radius: 30px;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+  justify-content: center;
+  column-gap: 40px;
+  transition: 1s all;
 }
 
 
-.cards {
+.book {
+  width: auto;
+  height: max-content;
+  object-fit: cover;
+  border-radius: 10px;
+  display: flex;
+  column-gap: 20px;
+  transition: 1s;
+}
 
+.book img {
+  object-fit: cover;
+  width: 130px;
+  height: 180px;
+  border-radius: 10px;
+}
+
+.info-book h2{
+  font-size: 1.2em;
+  text-align: left;
+}
+
+
+.info-book h3{
+  font-weight: 500;
+  color: #019974  ;
+  font-size: 1em;
+  text-align: left;
+}
+
+
+.info-book::-webkit-scrollbar{
+display: none;
+}
+.info-book{
+  display: flex;
+  overflow-x: scroll;
+  width: 0;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+  transition: 0.5s;
+}
+
+.info-book button{
+  width: 120px;
+ padding: 10px;
+}
+
+
+
+.cards {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -143,52 +205,4 @@ body {
   font-size: 1.5em;
 }
 
-.books{
-  display: flex;
-  justify-content: center;
-}
 
-.book {
-  width: 180px;
-  height: max-content;
-  object-fit: cover;
-  border-radius: 10px;
-  display: flex;
-  column-gap: 20px;
-}
-
-.book img {
-  object-fit: cover;
-  width: 70%;
-  height: 180px;
-  border-radius: 10px;
-}
-
-.info-book h2{
-  font-size: 1.2em;
-  text-align: left;
-}
-
-
-.info-book h3{
-  font-weight: 500;
-  color: #019974  ;
-  font-size: 1em;
-  text-align: left;
-}
-
-.info-book{
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  justify-content: space-around;
-}
-
-.info-book button{
-  width: 120px;
- padding: 10px;
-}
-
-.info-book.active{
-  display: flex;
-}

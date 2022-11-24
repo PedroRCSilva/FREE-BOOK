@@ -122,6 +122,21 @@ function dadosLivroGenero() {
 }
   }
 
+  function books(){
+    const book = document.querySelectorAll(".book");
+    const infoBook = document.querySelectorAll(".info-book")
+   book.forEach((element,idx) => {
+    element.addEventListener("mouseover",()=>{
+      infoBook[idx].style.opacity="1";
+      infoBook[idx].style.width=infoBook[idx].scrollWidth + "px";
+    });
+    element.addEventListener("mouseout",()=>{
+      infoBook[idx].style.opacity="0";
+      infoBook[idx].style.width=0;
+    });
+   });
+  }
+  
   function topLivro(){
     fetch("/livro/topLivro",{
       method:'GET',
@@ -131,19 +146,17 @@ function dadosLivroGenero() {
     }).then((resposta)=>{
       resposta.json().then((json)=>{
       criarTopLivro(json);
+      books()
       })
     }).catch((erro)=>{
       console.log(erro)
     })
   }
   window.scroll(0,0);
-
-  
-
-
-  
   topLivro();
   dadosLivroGenero();
   dadosTopUsuario();
+  
+
 
   
