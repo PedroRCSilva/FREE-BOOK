@@ -1,4 +1,5 @@
 /* SCROOL-REVIEW */
+
 @keyframes animation {
   0%{
     transform: translate(0,0);
@@ -22,6 +23,8 @@
     transform: translate(0px,0px);
   }
 }
+
+
 .index .bool{
   width: 300px;
   height: 300px;
@@ -83,7 +86,11 @@
   width: 100%;
   display: flex;
   align-items:center ;
+  flex-direction: column;
+  row-gap: 40px ;
+  justify-content: center;  
 }
+
 
 .sessao2 .container h2{
   font-size: 5em;
@@ -102,6 +109,7 @@
   display: flex;
   align-items: center;
   min-height: 100vh;
+  flex-direction: column;
 } 
 
 .sessao3 .container{
@@ -149,5 +157,85 @@ margin-top: 70px;
   margin-right: auto;
 }
 
+.sessao5{
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  min-height: 100vh;
+}
 
+.sessao5 .container{
+  flex-direction: column;
+}
+
+.sessao5 h2{
+  font-size: 3em;
+  text-align: center;
+}
+
+.sessao5 .container{
+  row-gap: 50px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.sessao5 .container .content-img{
+width: auto;
+height: 100%;
+}
+.book{
+  display: flex;
+  justify-content: center;
+  column-gap: 70px;
+}
+
+.book .img{
+width: 300px;
+}
+
+.book .group-text{
+ width: 40%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+}
+.sessao6{
+  flex-direction: column;
+}
+
+.sessao6 .container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+
+.book .group-text h2{
+  text-align: left;
+}
+
+.sessao6 .container .content-text{
+  flex:0
+}
+
+.sessao6 .container .content-img{
+  flex:0;
+  width: 60%;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+
+
+.sessao6 .container .content-text h2{
+  font-size: 4em;
+}
+
+.sessao6 .container .content-text h3{
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 30px;
+}
 
