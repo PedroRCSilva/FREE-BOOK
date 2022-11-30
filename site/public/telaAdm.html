@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/telaAdm.css">
+  <title>Document</title>
+</head>
+<body>
+  <section class="dashboard">
+    <div class="container">
+      <form action="">
+        <div class="campos">
+        <label for="" id="in_titulo">INFORME O NOME DO LIVRO</label>
+        <input type="text" id="in_autor">
+        <label for="">INFORME O AUTOR DO LIVRO</label>
+        <input type="text">
+
+        <label for="">INFORME A DATA DE LANCAMENTO DO LIVRO</label>
+        <input type="date" id="in_data">
+
+        <label for="">INFORME O GENERO DO LIVRO</label>
+        <select type="text" id="in_genero">
+          <option value="">Informe o genero do seu livro</option>
+          <option value="Ficção">Ficção</option>
+          <option value="Infantil">Infantil</option>
+          <option value="Fantasia">Fantasia</option>
+          <option value="Ficção Literiaria">Ficção literaria</option>
+          <option value="Romance">Romance</option>
+          <option value="Ficção Cientifica">Ficção cientifica</option>
+          <option value="Thriller e suspense">Thriller e Suspense</option>
+          <option value="Não-ficção">Não-ficção</option>
+          <option value="Humanidade e Ciencias Sociais ">Humanidade e ciencias sociais</option>
+          <option value="Religião e Espiritualidade">Religião e espiritualidade</option>
+          <option value="Tecnologia">Tecnologia</option>
+        </select>
+        <label for="">INFORME A URL DO LIVRO</label>
+        <input type="url" id="in_url">
+      </div>
+      <div class="campos">
+        <label for="">INSIRA A CAPA DO LIVRO</label>
+        <input type="file" id="image" onchange="transformarBase64()">
+
+        <label for="">INFORME A DESCRICAO DO LIVRO</label>
+        <textarea type="text" id="in_descricao"></textarea>
+      </div>
+      </form>
+      <button onclick="cadastrarLivro()">UPLOAD</button>
+    </div>
+  </section>
+
+  <section class="deleteLivro">
+    <div class="container">
+
+    </div>
+  </section>
+
+  <aside class="navdash">
+    <button>DELETAR LIVROS</button>
+    <button>INSERIR LIVROS LIVROS</button>
+  </aside>
+  <script src="js/telaAdm.js"></script>
+</body>
+</html>
