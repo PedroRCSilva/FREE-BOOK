@@ -33,8 +33,10 @@ fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario)
 
 select * from usuario;
 select * from metrica;
-select * from livros;
+select * from livro;
 
+SELECT COUNT(IDUSUARIO) FROM USUARIO;
 
+SELECT USUARIO.NOME, USUARIO.SOBRENOME,SUM(LIVRO.DOWNLOADS) as QUANTIDADE FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO  GROUP BY USUARIO.IDUSUARIO ORDER BY QUANTIDADE DESC LIMIT 6;
 
 

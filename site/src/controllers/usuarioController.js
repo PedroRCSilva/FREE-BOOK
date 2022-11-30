@@ -151,7 +151,24 @@ function downloadTopUsuarioController(req,res){
   ;
 }
 
-
+function usuarioRoot(req,res){
+  var email = req.body.emailServer;
+  var senha = req.body.senhaServer;
+  usuarioModel.usuarioRoot(email,senha).then((resposta)=>{
+ 
+      if(resposta.length==1){
+        res.json(resposta);
+      }
+      else if(resposta.length>1){
+        res.status(403).send("Mais de um usuário com o mesmo login");
+      }
+      else{
+        res.status(403).send("EMAIL E SENHA INCORRETOS");
+      }
+    }).catch((erro)=>{
+      console.log(erro);
+    })
+  }
 
 module.exports = {
   entrar,
@@ -163,4 +180,5 @@ module.exports = {
   quantidadeTotalDownloadsController,
   downloadTopUsuarioController,
   contaAtivasController,
+  usuarioRoot
 };

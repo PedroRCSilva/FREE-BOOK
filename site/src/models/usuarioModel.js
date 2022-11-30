@@ -12,7 +12,7 @@ function listar() {
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM USUARIO WHERE EMAIL = '${email}' AND SENHA = '${senha}';
+        SELECT * FROM USUARIO WHERE EMAIL = '${email}' AND SENHA = sha2('${senha}',256);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -25,7 +25,7 @@ function cadastrar(nome, email, senha,sobrenome,img) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO USUARIO (nome, email, senha,sobrenome,img) VALUES ('${nome}', '${email}', '${senha}','${sobrenome}','${img}');
+        INSERT INTO USUARIO (nome, email, senha,sobrenome,img) VALUES ('${nome}', '${email}',sha2('${senha}',256),'${sobrenome}','${img}');
     `;
     console.log("Executando a instrução SQL: CADASTRO");
     return database.executar(instrucao);
@@ -62,6 +62,11 @@ function contaAtivas(){
     console.log("ENTREI NA MODEL contaAtivas, EXECUTANDO A INSTRUÇÃO");
     var instrucao = "SELECT COUNT(IDUSUARIO) AS CONTAS FROM USUARIO";
     return database.executar(instrucao);
+
+}
+function usuarioRoot(email,senha){
+    var instrucao=`SELECT * FROM USUARIO WHERE EMAIL='${email}' and senha=sha2(${senha},256)and tipoAcesso="ROOT"`;
+    return database.executar(instrucao);
 }
 
 module.exports = {
@@ -73,4 +78,5 @@ module.exports = {
     quantidadeTotalDownloads,
     downloadsTopUsuario,
     contaAtivas,
+    usuarioRoot,
 };

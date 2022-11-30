@@ -40,4 +40,7 @@ router.get("/contasAtivas", (req, res) => {
   usuarioController.contaAtivasController(req, res);
 });
 
+router.post("/autenticarRoot",(req,res)=>{
+  usuarioController.usuarioRoot(req,res)
+})
 module.exports = router;
