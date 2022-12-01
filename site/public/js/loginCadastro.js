@@ -239,4 +239,11 @@ function cadastrar() {
   })
 }
 
+function tipoLogin(){
+  const boll = document.querySelector(".bool");
+    boll.classList.toggle("active",sessionStorage.INFO_HOME=="CADASTRO");
+  }
+  
+  tipoLogin();
+
 

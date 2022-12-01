@@ -12,7 +12,13 @@
   <link rel="stylesheet" href="css/upload-livro.css">
   <title>Upload Livro</title>
 </head>
-
+<script>
+  var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
+ 
+ if(infoUsuario==undefined){
+ window.location="login-cadastro.html"
+ }
+   </script>
 <body>
   
 
@@ -48,10 +54,10 @@
           <label >Informe um titulo para seu livro</label>
           <input type="text" id="in_titulo">
           <br>
-          <label>Informe o genero do seu livro</label><br><br>
+          <label>Informe o genêro do seu livro</label><br><br>
           <div id="in_genero">
           <select type="text" >
-            <option value="">Informe o genero do seu livro</option>
+            <option value="">Informe o genêro do seu livro</option>
             <option value="Ficção">Ficção</option>
             <option value="Infantil">Infantil</option>
             <option value="Fantasia">Fantasia</option>

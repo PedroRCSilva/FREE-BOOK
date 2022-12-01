@@ -10,20 +10,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-  <title>Site</title>
+  <title>SOBRE MIM</title>
 </head>
 
 <body>
 
   <header>
     <div class="container">
-      <div class="logo">FREE BOOK</div>
+      <div class="logo"><a href="./index.html">FREE BOOK</a></div>
       <nav class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="sobre-nos.html">Sobre nós</a></li>
-          <li><a href="login-cadastro.html">Cadastro</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="sobre-mim.html">Sobre mim</a></li>
+          <li onclick="salvarSession('CADASTRO')">Cadastro</li>
+          <li onclick="salvarSession('LOGIN')">Login</li>
         </ul>
       </nav>
     </div>
@@ -35,10 +35,10 @@
     <div class="container">
       <div class="content-text">
         <h2>UM POUCO SOBRE MIM</h2>
-        <p>OLÁ SOU O PEDRO CRIADOR DA PÁGINA<br> FREEBOOK, QUER SABER COMO TUDO ISSO COMEÇOU ? </p>
+        <p>OLÁ, SOU O PEDRO, CRIADOR DA PÁGINA<br> FREEBOOK, QUER SABER COMO TUDO ISSO COMEÇOU ? </p>
         <div class="group-btn">
           <a href="#1"><button class="btn">AFINAL, QUEM É VOCÊ?</button></a>
-          <button class="btn">QUERO NÃO</button>
+          <a href="./index.html"><button class="btn">QUERO NÃO</button></a>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
     <div class="container">
       <div class="content-text">
         <h2>EU ODEIO LER</h2>
-        <p>Bom, contrariando o que todo mundo pensa, era o que eu falaria até meus 13 anos, eu odiava ler com todas as
+        <p>Bom, contrariando o que todo mundo pensa, era o que eu falaria quando tinha 13 anos. Eu odiava ler com todas as
           minhas forças, preferia virar a noite jogando video game do que ler um livro, até que algo aconteceu ! </p>
       </div>
       <div class="content-img">
@@ -69,8 +69,9 @@
     <div class="container">
       <div class="content-text">
         <h2>JESUS MANDOU EU LER !</h2>
-        <p>EU QUERIA SABER QUEM ERA ESSE CARA E NÃO TINHA COMO FAZER CHAMADA DE VIDEO COM ELE, ENTÃO O POVO QUE CONHECIA
-          FALOU QUE CONHECERAM ELE LENDO A BÍBLIA, A LEITURA ME PREGOU UMA PEÇA. </p>
+        <p>Eu queria saber quem era esse cara e não tinha como fazer chamada de video com ele, então me falaram que a maneira mais
+          fácil e confiavel era lendo a bíblia, a leitura me pregou uma peça.
+   </p>
 
       </div>
 
@@ -86,9 +87,10 @@
     <div class="container">
       <div class="content-text">
 
-        <p>FOI O QUE EU PENSEI QUANDO COMECEI A LER SOBRE O QUE JESUS FEZ, A FORMA COMO ELE AJUDAVA AS PESSOAS E
-          ENSINAVA ME FACINA E OS VALORES QUE ELE ENSINOU COMO GENTILEZA, HUMILDADE E RESILIENCIA CARREGO COMIGO ATÉ
-          HOJE E FOI POR CONTA DISSO QUE CRIEI ESSE SITE. </p>
+        <p>Foi o que eu pensei quando comecei a ler sobre o que Jesus fez, a forma como ele ajudava e
+          ensinava as pessoas me fascina e os valores que ele ensinou como gentileza, humildade e resiliência carrego comigo até
+          hoje, por conta disso que criei esse site.
+</p>
       </div>
 
       <div class="content-img">
@@ -98,37 +100,71 @@
 
   </section>
 
-  <section class="sessao5" id="4">
-    <h2>VIREI O DOIDO DA LEITURA</h2>
-    <div class="container">
-      <div class="content-text">
-        <p>DEPOIS DISSO COMECEI A LER VÁRIOS LIVROS, VEJA ALGUNS:</p>
-      </div>
+  <section class="session-carrossel">
+    <h2>VIREI O DOIDO DO LIVRO</h2>
+    <button class="btn"><</button>
+    <button class="btn">></button>
+      <p>DEPOIS DISSO COMECEI A LER VÁRIOS LIVROS, VEJA ALGUNS:</p>
+     
+    <div>
 
-      <div class="content-img">
+      <div class="group">
 
-        <div class="book">
-          <div class="img">
-            <img src="./img/51Yl1ZAhZiL.jpg" alt="">
+        <div class="container">
+          <div class="book">
+            <img src="https://m.media-amazon.com/images/I/71nxKlHY5uL.jpg" alt="">
           </div>
-          <div class="group-text">
-            <h2>A TRAVESSIA</h2>
-            <p>Um derrame cerebral deixa Anthony Spencer, um multimilionário egocêntrico, em coma. Quando "acorda", ele
-              se vê em um mundo surreal habitado por um estranho, que descobre ser Jesus, e por uma idosa que é o
-              Espírito Santo.
-              À sua frente se descortina uma paisagem que lhe revela toda a mágoa e a tristeza de sua vida terrena.
-              Jamais poderia ter imaginado tamanho horror. Debatendo-se contra um sofrimento emocional insuportável, ele
-              implora por uma segunda chance.
-              Sua prece é ouvida e ele é enviado de volta à Terra, onde viverá uma experiência de profunda comunhão com
-              uma série de pessoas e terá a oportunidade de reexaminar a própria vida. Nessa jornada, precisará
-              "enxergar" através dos olhos dos outros e conhecer suas visões de mundo, suas esperanças, seus medos e
-              seus desafios.
-              Na busca de redenção, Tony deverá usar um poder que lhe foi concedido: o de curar uma pessoa. Será que ele
-              terá coragem de fazer a escolha certa?</p>
+          <div class="content-text-carrossel">
+            <div>
+              <h2>TRAVESSIA</h2>
+              <h3>William P. Young</h3>
+              <p>Um derrame cerebral deixa Anthony Spencer, um multimilionário egocêntrico, em coma. Quando "acorda", ele se vê em um mundo surreal habitado por um estranho, que descobre ser Jesus, e por uma idosa que é o Espírito Santo.
+
+                À sua frente se descortina uma paisagem que lhe revela toda a mágoa e a tristeza de sua vida terrena. Jamais poderia ter imaginado tamanho horror. Debatendo-se contra um sofrimento emocional insuportável, ele implora por uma segunda chance.
+                Sua prece é ouvida e ele é enviado de volta à Terra, onde viverá uma experiência de profunda comunhão com uma série de pessoas e terá a oportunidade de reexaminar a própria vida. Nessa jornada, precisará "enxergar" através dos olhos dos outros e conhecer suas visões de mundo, suas esperanças, seus medos e seus desafios.
+                Na busca de redenção, Tony deverá usar um poder que lhe foi concedido: o de curar uma pessoa. Será que ele terá coragem de fazer a escolha certa?</p>
+            </div>
+            
           </div>
+
         </div>
+
+        <div class="container">
+          <div class="book">
+            <img src="https://m.media-amazon.com/images/I/41aS5ftGKCL.jpg" alt="">
+          </div>
+          <div class="content-text-carrossel">
+            <div class="btn-carrossel"></div>
+            <div>
+              <h2>ANTES DE QUEBRAR A CARA</h2>
+              <h3>LUCA MARTINI</h3>
+              <p>Quais são as chances que a gente tem de quebrar a cara? Bom, se olhar para a história da humanidade, vai ver que são gigantes. Mas não precisa ir tão longe: olhe pra sua própria vida e perceba como algumas coisas tornam essa possibilidade ainda maior.
+                Quebrar a cara muitas vezes é ir pelo caminho errado, tomar decisões ruins, perder tempo com o que não importa, comer comida vencida, ouvir música ruim, ler livros piores, repetir de ano, e a pior de todas: acreditar em mentiras.</p>
+            </div>
+            
+          </div>
+
+        </div>
+
+
+        <div class="container">
+          <div class="book">
+            <img src="https://a-static.mlcdn.com.br/800x560/biblia-sagrada-p-jovens-moderna-jesus-copy-lettering-sk/amigodoceubrasilmagazini/adbd12e4f55b11ebaed64201ac18500e/64c053b0125627e22d6556c4faa62c2b.jpeg" alt="">
+          </div>
+          <div class="content-text-carrossel">
+            <div>
+              <h2>BÍBLIA SAGRADA</h2>
+              <h3>VÁRIOS AUTORES</h3>
+              <p>UMA COLETÂNEA DE LIVROS QUE CONTA A HISTÓRIA ENTRE OS HUMANOS E DEUS, ONDE EM UM PERIODO VIVIAM JUNTOS EM HARMONIA,  MAS EM CERTO MOMEMENTO O HOMEM TRAIU DEUS POR MEIO DO PECADO E HOUVE UMA SEPARAÇÃO. DEUS APAIXONADO PELA SUA CRIAÇÃO  TRAÇA UM PLANO PARA RESGATAR OS HUMANOS DO CONDENAÇÃO ETERNA E TRAZE-LOS DE VOLTA PARA O SEU REINO E ENTÃO VIVEREM JUNTOS ETERNAMENTE.</p>
+            </div>
+          </div>
+
+        </div>
+
+      
       </div>
     </div>
+  
   </section>
 
   <section class="sessao6" id="5">
@@ -197,6 +233,8 @@
     <h2>CLIQUE NO CARTÃO </h2>
   </div>
   </section>
+  <script src="js/navbarHome.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

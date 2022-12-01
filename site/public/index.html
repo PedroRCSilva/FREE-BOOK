@@ -15,13 +15,13 @@
 <body>
   <header>
     <div class="container">
-      <div class="logo">FREE BOOK</div>
+      <div class="logo"><a href="./index.html">FREE BOOK</a></div>
       <nav class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="sobre-mim.html">Sobre nós</a></li>
-          <li><a href="login-cadastro.html">Cadastro</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="sobre-mim.html">Sobre Mim</a></li>
+          <li onclick="salvarSession('CADASTRO')">Cadastro</li>
+          <li onclick="salvarSession('LOGIN')">Login</li>
         </ul>
       </nav>
     </div>
@@ -30,8 +30,7 @@
   <section class="session">
     <div class="container">
       <div class="content-text">
-        <button><img src="img/Vector.png"> Search Book</button>
-        <button><img src="img/pen.png"> Write a Book</button>
+
         <div class="text">
           <h2>FREE <span>BOOK</span></h2>
           <p>O LUGAR ONDE AS PALAVRAS GANHAM <br>FORMAS AS IDEIAS VIRAM REALIDADE</p>
@@ -52,170 +51,85 @@
 
   </section>
   <section class="session-carrossel">
-    <h2>CLÁSSICOS DA LITERATURA BRASILEIRA</h2>
-<button class="btn"><</button>
-<button class="btn">></button>
-    <div>
+    <h2>LIVROS QUE VOCÊ DEVERIA LER</h2>
+    <button class="btn"><</button>
+        <button class="btn">></button>
+        <div>
 
-      <div class="group">
+          <div class="group">
 
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
+            <div class="container">
+              <div class="book">
+                <img src="https://m.media-amazon.com/images/I/71nxKlHY5uL.jpg" alt="">
+              </div>
+              <div class="content-text-carrossel">
+                <div>
+                  <h2>TRAVESSIA</h2>
+                  <h3>William P. Young</h3>
+                  <p>Um derrame cerebral deixa Anthony Spencer, um multimilionário egocêntrico, em coma. Quando
+                    "acorda", ele se vê em um mundo surreal habitado por um estranho, que descobre ser Jesus, e por uma
+                    idosa que é o Espírito Santo.
+
+                    À sua frente se descortina uma paisagem que lhe revela toda a mágoa e a tristeza de sua vida
+                    terrena. Jamais poderia ter imaginado tamanho horror. Debatendo-se contra um sofrimento emocional
+                    insuportável, ele implora por uma segunda chance.
+                    Sua prece é ouvida e ele é enviado de volta à Terra, onde viverá uma experiência de profunda
+                    comunhão com uma série de pessoas e terá a oportunidade de reexaminar a própria vida. Nessa jornada,
+                    precisará "enxergar" através dos olhos dos outros e conhecer suas visões de mundo, suas esperanças,
+                    seus medos e seus desafios.
+                    Na busca de redenção, Tony deverá usar um poder que lhe foi concedido: o de curar uma pessoa. Será
+                    que ele terá coragem de fazer a escolha certa?</p>
+                </div>
+
+              </div>
+
             </div>
-            <button>QUERO LER</button>
-          </div>
 
+            <div class="container">
+              <div class="book">
+                <img src="https://m.media-amazon.com/images/I/41aS5ftGKCL.jpg" alt="">
+              </div>
+              <div class="content-text-carrossel">
+                <div class="btn-carrossel"></div>
+                <div>
+                  <h2>ANTES DE QUEBRAR A CARA</h2>
+                  <h3>LUCA MARTINI</h3>
+                  <p>Quais são as chances que a gente tem de quebrar a cara? Bom, se olhar para a história da
+                    humanidade, vai ver que são gigantes. Mas não precisa ir tão longe: olhe pra sua própria vida e
+                    perceba como algumas coisas tornam essa possibilidade ainda maior.
+                    Quebrar a cara muitas vezes é ir pelo caminho errado, tomar decisões ruins, perder tempo com o que
+                    não importa, comer comida vencida, ouvir música ruim, ler livros piores, repetir de ano, e a pior de
+                    todas: acreditar em mentiras.</p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="container">
+              <div class="book">
+                <img
+                  src="https://a-static.mlcdn.com.br/800x560/biblia-sagrada-p-jovens-moderna-jesus-copy-lettering-sk/amigodoceubrasilmagazini/adbd12e4f55b11ebaed64201ac18500e/64c053b0125627e22d6556c4faa62c2b.jpeg"
+                  alt="">
+              </div>
+              <div class="content-text-carrossel">
+                <div>
+                  <h2>BÍBLIA SAGRADA</h2>
+                  <h3>VÁRIOS AUTORES</h3>
+                  <p>UMA COLETÂNEA DE LIVROS QUE CONTA A HISTÓRIA ENTRE OS HUMANOS E DEUS, ONDE EM UM PERIODO VIVIAM
+                    JUNTOS EM HARMONIA, MAS EM CERTO MOMEMENTO O HOMEM TRAIU DEUS POR MEIO DO PECADO E HOUVE UMA
+                    SEPARAÇÃO. DEUS APAIXONADO PELA SUA CRIAÇÃO TRAÇA UM PLANO PARA RESGATAR OS HUMANOS DO CONDENAÇÃO
+                    ETERNA E TRAZE-LOS DE VOLTA PARA O SEU REINO E ENTÃO VIVEREM JUNTOS ETERNAMENTE.</p>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
         </div>
 
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div class="btn-carrossel"></div>
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
-            </div>
-            <button>QUERO LER</button>
-          </div>
-
-        </div>
-
-
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
-            </div>
-            <button>QUERO LER</button>
-          </div>
-
-        </div>
-
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
-            </div>
-            <button>QUERO LER</button>
-          </div>
-
-        </div>
-
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
-            </div>
-            <button>QUERO LER</button>
-          </div>
-
-        </div>
-
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
-            </div>
-            <button>QUERO LER</button>
-          </div>
-
-        </div>
-
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
-            </div>
-            <button>QUERO LER</button>
-          </div>
-
-        </div>
-
-        <div class="container">
-          <div class="book">
-            <img src="img/514X7ZAS-oL 1.png" alt="">
-          </div>
-          <div class="content-text-carrossel">
-            <div>
-              <h2>DOM CASMURRO</h2>
-              <h3>Machado de Assis</h3>
-              <p>O possível triângulo amoroso entre Bentinho, Capitu e Escobar fascina leitores e leitoras há mais de um
-                século. Assim, a dúvida acerca da traição de Capitu persiste e traz com ela questionamentos acerca do
-                amor,
-                da
-                família, da amizade e do lugar da mulher na sociedade brasileira.</p>
-            </div>
-            <button>QUERO LER</button>
-          </div>
-
-        </div>
-      
-      </div>
-    </div>
-  
   </section>
 
   <section class="session book-write">
@@ -223,7 +137,7 @@
     <div class="container">
       <div class="content-text">
         <p>Já pensou se você publicasse seus próprios livros? Pare de pensar, isso já é uma realidade!</p>
-        <a href="./login.html"><button>PUBLICAR MEU LIVRO</button></a>
+        <a href="./login-cadastro.html"><button>PUBLICAR MEU LIVRO</button></a>
       </div>
       <div class="content-img">
         <img src="img/bro.png" alt="">
@@ -232,23 +146,16 @@
   </section>
   <footer>
     <div class="container">
-      <div class="logo">FREEBOOK</div>
+      <div class="logo"><a href="./index.html">FREEBOOK</a></div>
       <div class="footer-text">
         <h2>Todos os direitos reservados a FREEBOOK &copy</h2>
         <p>Desenvolvido de um leitor para outro leitor</p>
       </div>
-      <div class="social-media">
-        <h2>Nos siga nas redes sociais</h2>
 
-        <div class="content-social">
-          <img src="" alt="">
-          <img src="" alt="">
-          <img src="" alt="">
-        </div>
-      </div>
     </div>
   </footer>
   <script src="js/script.js"></script>
+  <script src="js/navbarHome.js"></script>
 </body>
 
 </html>

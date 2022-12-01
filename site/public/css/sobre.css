@@ -1,5 +1,10 @@
 /* SCROOL-REVIEW */
 
+header .container{
+  position: relative;
+  left: auto;
+  right: auto;
+}
 @keyframes animation {
   0%{
     transform: translate(0,0);
@@ -157,49 +162,19 @@ margin-top: 70px;
   margin-right: auto;
 }
 
-.sessao5{
-  display: flex;
-  flex-direction: column;
-  row-gap: 40px;
-  min-height: 100vh;
-}
-
-.sessao5 .container{
-  flex-direction: column;
-}
-
-.sessao5 h2{
-  font-size: 3em;
-  text-align: center;
-}
-
-.sessao5 .container{
-  row-gap: 50px;
-  width: 100%;
-  justify-content: space-between;
-}
-
-
 .sessao5 .container .content-img{
 width: auto;
 height: 100%;
 }
-.book{
-  display: flex;
-  justify-content: center;
-  column-gap: 70px;
-}
 
-.book .img{
-width: 300px;
-}
 
-.book .group-text{
- width: 40%;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-}
+.session-carrossel>p{
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 10px;
+  color: #fff;
+  }
+
 .sessao6{
   flex-direction: column;
 }
@@ -239,7 +214,7 @@ justify-content: space-around;
 
 
 .card{
-  min-height: 90vh;
+  min-height: 130vh;
   width: 100%;
   display: flex;
   justify-content:center;

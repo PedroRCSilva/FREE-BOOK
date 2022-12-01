@@ -33,11 +33,8 @@ btnCarrossel[1].addEventListener("click", () => {
 });
 //
 
-function colorNavbar(){
-const navbar= document.querySelector("header .container");
-  navbar.classList.toggle("active",scrollY>=20);
+function salvarSession(tipo){
+  sessionStorage.setItem("INFO_HOME",tipo)
+  window.location="./login-cadastro.html";
 }
 
-window.addEventListener("scroll",()=>{
-  colorNavbar()
-})

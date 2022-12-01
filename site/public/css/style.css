@@ -11,6 +11,15 @@
 }
 
 
+html::-webkit-scrollbar {
+  width: 5px;
+  position: absolute;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #222;
+}
+
 img {
   width: 100%;
 
@@ -23,8 +32,6 @@ html {
 header {
   width: 100%;
   height: 70px;
- 
-
 }
 
 header .container {
@@ -45,7 +52,7 @@ header .container.active{
 
 }
 
-.container.active>.logo, .container.active ul a{
+.container.active>.logo a, .container.active ul li,.container.active ul a{
   color: #fff;
 }
 
@@ -70,8 +77,8 @@ header .container.active{
   flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 1.50em;
+.logo a,.logo {
+  font-size: 1.3em;
   color: #019974;
 }
 
@@ -285,7 +292,6 @@ button:hover {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1 1 570px;
   height: 450px;
 }
@@ -381,6 +387,7 @@ footer {
   height: 120px;
   background-color: #222;
 }
+
 
 .footer-text>h2,
 .social-media h2 {

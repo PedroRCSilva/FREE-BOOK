@@ -13,7 +13,13 @@
   <link rel="stylesheet" href="css/analitics.css">
   <title>FREEBOOK - HOME </title>
 </head>
-
+<script>
+  var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
+ 
+ if(infoUsuario==undefined){
+ window.location="login-cadastro.html"
+ }
+   </script>
 <body>
 
   <section class="dashboard">
@@ -33,7 +39,7 @@
             <a href="upload-livros.html">
               <li>FAZER UPLOAD</li>
             </a>
-              <li id="btnAnalise">Ver análise de livros</li>
+            <li id="btnAnalise">VER ANÁLISE DOS LIVROS</li>
           </ul>
         </div>
         <button class="sairSessao" onclick="sairSessao()">SAIR</button>
@@ -62,7 +68,7 @@
         </div>
       </div>
       <div class="book-list">
-        <h2>LIVROS PUBLICADOS</h2>
+        <h2>LIVROS DA PLATAFORMA</h2>
         <div class="group-book">
 
         </div>
@@ -96,14 +102,12 @@
         <canvas id="graficBar"></canvas>
       </div>
       <div class="pizza">
-        <h2>LIVROS DISPONIVEIS NA<br> PLATAFORMA POR GENERO</h2>
+        <h2>LIVROS DISPONÍVEIS NA<br> PLATAFORMA POR GENÊRO</h2>
         <canvas id="graficPizza"></canvas>
       </div>
       <div class="top-book">
         <h2>LIVROS MAIS BAIXADOS DA PLATAFORMA</h2>
         <div class="books">
-          
-        
         </div>
       </div>
       <div class="cards">
@@ -111,12 +115,12 @@
         <div class="card">
           <h2>TOTAL DO SEUS LIVROS</h2>
           <div>
-            <div><span id="qtdDownload">40</span> Downloads </div><span id="totalPorcento">50%</span>
+            <div><span id="qtdDownload">0</span> Downloads </div><span id="totalPorcento">50%</span>
           </div>
         </div>
         <div class="card">
           <h2>CONTAS ATIVAS</h2>
-          <span id="qtdConta">40</span>
+          <span id="qtdConta">0</span>
         </div>
       </div>
     </div>

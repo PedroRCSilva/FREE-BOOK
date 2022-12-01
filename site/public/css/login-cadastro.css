@@ -25,7 +25,7 @@ header .container {
 }
 
 header .container .logo,
-header .container a {
+header .container a,header .container li {
   color: #fff;
 }
 
@@ -112,6 +112,7 @@ header .container a {
   z-index: 9999;
   width: 300px;
   transition: 0.5s;
+  z-index: 1;
 }
 
 .text2 {
@@ -124,14 +125,18 @@ header .container a {
   right: 30%;
   color: #222;
   transition: 0.5s;
+  z-index: 0;
 }
 
 .active .text {
   opacity: 0;
+  z-index: 0;
 }
 
 .active .text2 {
   opacity: 1;
+  z-index: 1;
+  
 
 }
 
