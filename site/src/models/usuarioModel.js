@@ -47,7 +47,7 @@ function QuantidadeLivros(idUsuario){
 function downloadsTopUsuario(){
     console.log("ENTREI NA MODEL downloadsTopUsuario, EXECUTANDO A INSTRUÇÃO");
 
-    var instrucao = `SELECT USUARIO.NOME, USUARIO.SOBRENOME,SUM(LIVRO.DOWNLOADS) as QUANTIDADE FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO  GROUP BY USUARIO.IDUSUARIO ORDER BY QUANTIDADE DESC LIMIT 6;`
+    var instrucao = `SELECT USUARIO.NOME, USUARIO.SOBRENOME,SUM(LIVRO.DOWNLOADS) as QUANTIDADE FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO  WHERE tipoAcesso="USER" GROUP BY USUARIO.IDUSUARIO ORDER BY QUANTIDADE DESC LIMIT 6;`
     return database.executar(instrucao);
 }
 
@@ -65,7 +65,7 @@ function contaAtivas(){
 
 }
 function usuarioRoot(email,senha){
-    var instrucao=`SELECT * FROM USUARIO WHERE EMAIL='${email}' and senha=sha2(${senha},256)and tipoAcesso="ROOT"`;
+    var instrucao=`SELECT * FROM USUARIO WHERE EMAIL='${email}' and senha=sha2('${senha}',256)and tipoAcesso="ROOT"`;
     return database.executar(instrucao);
 }
 
