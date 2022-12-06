@@ -7,7 +7,8 @@ nome varchar(45),
 sobrenome varchar(45),
 email varchar(255) UNIQUE,
 senha varchar(100),
-img longtext
+img longtext,
+tipoAcesso varchar(45)
 );
 
 CREATE TABLE METRICA
@@ -20,7 +21,7 @@ PRIMARY KEY(idMetrica,fkUsuario)
 );
 
 CREATE TABLE LIVRO
-(idLivro int auto_increment primary key,
+(idLivro int auto_increment,
 titulo varchar(45),
 autor varchar(45),
 dtLanc date,
@@ -28,15 +29,12 @@ img longtext,
 url longtext,
 descricao longtext,
 downloads int,
-fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario)
+fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario),
+primary key(idLivro,fkUsuario)
 );
 
 select * from usuario;
 select * from metrica;
 select * from livro;
-
-SELECT COUNT(IDUSUARIO) FROM USUARIO;
-
-SELECT USUARIO.NOME, USUARIO.SOBRENOME,SUM(LIVRO.DOWNLOADS) as QUANTIDADE FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO  GROUP BY USUARIO.IDUSUARIO ORDER BY QUANTIDADE DESC LIMIT 6;
-
-
+INSERT INTO USUARIO VALUE 
+(NULL,'Pedro','Rocha','pedro.root@sptech.school',sha2('3Db01194.',256),'','ROOT');

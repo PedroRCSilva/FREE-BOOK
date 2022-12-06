@@ -18,7 +18,7 @@ function anteriorCarrossel() {
 }
 
 btnCarrossel[0].addEventListener("click", () => {
-  anteriorCarrossel();
+''  anteriorCarrossel();
 });
 btnCarrossel[1].addEventListener("click", () => {
   proximoCarrossel();
