@@ -1,4 +1,4 @@
-var cores = ["#264653", "#2A9D8F", "E9C46A", "#F4A261", "#E76F51"];
+var cores = ["#264653", "#2A9D8F", "E9C46A", "#F4A261", "#E76F51","#8de0a6","#1c0b2b"];
 function plotarGraficoBar(label, dados) {
   var labelUsuario = label;
   var dadosUsuario = dados;
@@ -21,7 +21,7 @@ function plotarGraficoBar(label, dados) {
       scales: {
         y: {
           min: 0,
-          max: 50,
+          max: parseInt(dados[0]),
         },
       },
     },
