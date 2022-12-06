@@ -1,12 +1,6 @@
 const carrossel = document.querySelector(".session-carrossel div");
 const btnCarrossel = document.querySelectorAll(".session-carrossel .btn");
-var intervalCarrossel = setInterval(() => {
-  if (validacao) {
-    proximoCarrossel();
-  } else {
-    anteriorCarrossel();
-  }
-}, 3000);
+
 
 // FUNÇÕES CRIADAS PARA CARROSSEL NA PÁGINA HOME
 let validacao = true;
@@ -24,11 +18,9 @@ function anteriorCarrossel() {
 }
 
 btnCarrossel[0].addEventListener("click", () => {
-  clearInterval(intervalCarrossel);
   anteriorCarrossel();
 });
 btnCarrossel[1].addEventListener("click", () => {
-  clearInterval(intervalCarrossel);
   proximoCarrossel();
 });
 //
