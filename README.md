@@ -1,4 +1,4 @@
-![logo]("/site/public/img")
+<img src="https://github.com/PedroRCSilva/FREE-BOOK/blob/main/site/public/img/Slide1.jpg?raw=true">
 
 # FREEBOOK
 
