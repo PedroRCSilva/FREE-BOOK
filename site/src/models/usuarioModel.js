@@ -25,7 +25,7 @@ function cadastrar(nome, email, senha,sobrenome,img) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO USUARIO (nome, email, senha,sobrenome,img) VALUES ('${nome}', '${email}',sha2('${senha}',256),'${sobrenome}','${img}');
+        INSERT INTO USUARIO (nome, email, senha,sobrenome,img,tipoAcesso) VALUES ('${nome}', '${email}',sha2('${senha}',256),'${sobrenome}','${img}',"USER");
     `;
     console.log("Executando a instrução SQL: CADASTRO");
     return database.executar(instrucao);
@@ -53,7 +53,7 @@ function downloadsTopUsuario(){
 
 function quantidadeTotalDownloads(idUsuario){
 console.log("ENTREI NA MODEL quantidadeTotalDownloads, EXECUTANDO A INSTRUÇÃO");
-var instrucao = `SELECT SUM(livro.downloads) as downloads FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE USUARIO.IDUSUARIO=${idUsuario}`;
+var instrucao = `SELECT SUM(LIVRO.downloads) as downloads FROM USUARIO JOIN LIVRO ON IDUSUARIO=FKUSUARIO WHERE USUARIO.IDUSUARIO=${idUsuario}`;
 
 return database.executar(instrucao);
 }
