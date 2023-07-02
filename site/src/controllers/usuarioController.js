@@ -3,7 +3,6 @@ var usuarioModel = require("../models/usuarioModel");
 var sessoes = [];
 
 function testar(req, res) {
-  console.log("ENTRAMOS NA usuarioController");
   res.json("ESTAMOS FUNCIONANDO!");
 }
 
@@ -18,11 +17,6 @@ function listar(req, res) {
       }
     })
     .catch(function (erro) {
-      console.log(erro);
-      console.log(
-        "Houve um erro ao realizar a consulta! Erro: ",
-        erro.sqlMessage
-      );
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -39,12 +33,9 @@ function entrar(req, res) {
     usuarioModel
       .entrar(email, senha)
       .then(function (resultado) {
-        console.log(`\nResultados encontrados: ${resultado.length}`);
-        console.log(`Resultados: OBEJETOS`);
         // transforma JSON em String
 
         if (resultado.length == 1) {
-          console.log("resultado");
           res.json(resultado[0]);
         } else if (resultado.length == 0) {
           res.status(403).send("Email e/ou senha inválido(s)");
@@ -54,11 +45,6 @@ function entrar(req, res) {
       })
 
       .catch(function (erro) {
-        console.log(erro);
-        console.log(
-          "\nHouve um erro ao realizar o login! Erro: ",
-          erro.sqlMessage
-        );
         res.status(500).json(erro.sqlMessage);
       });
   }
@@ -90,11 +76,6 @@ function cadastrar(req, res) {
       })
 
       .catch(function (erro) {
-        console.log(erro);
-        console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
-          erro.sqlMessage
-        );
         res.status(500).json(erro.sqlMessage);
       });
   }
@@ -108,7 +89,7 @@ function listarLivros(req, res) {
       res.json(resultado);
     })
     .catch((erro) => {
-      console.log("ERRO NA CONSULTA" + erro);
+      res.status(400).send()
     });
 }
 
@@ -120,7 +101,7 @@ function exibirQtdLivros(req, res) {
       res.json(json);
     })
     .catch((erro) => {
-      console.log(erro);
+      res.status(400).send()
     });
 }
 
@@ -128,16 +109,16 @@ function contaAtivasController(req,res){
   usuarioModel.contaAtivas().then((resposta)=>{
     res.json(resposta)
   }).catch((erro)=>{
-    console.log(erro.sqlMessage)
+    res.status(400).send()
   });
 }
 
 function quantidadeTotalDownloadsController(req,res){
   var idUsuario = req.params.idUsuario;
   usuarioModel.quantidadeTotalDownloads(idUsuario).then((resposta)=>{
-    console.log(res.json(resposta));
+  res.json(resposta)
   }).catch((erro)=>{
-    console.log(erro.sqlMessage);
+    res.status(400).send("ERRO")
   })
   ;
 }
@@ -146,7 +127,7 @@ function downloadTopUsuarioController(req,res){
   usuarioModel.downloadsTopUsuario().then((resposta)=>{
    res.json(resposta)
   }).catch((erro)=>{
-    console.log(erro.sqlMessage)
+    res.status(400).send()
   });
   ;
 }
@@ -166,7 +147,7 @@ function usuarioRoot(req,res){
         res.status(403).send("EMAIL E SENHA INCORRETOS");
       }
     }).catch((erro)=>{
-      console.log(erro);
+      res.status(400).send();
     })
   }
 

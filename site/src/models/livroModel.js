@@ -1,20 +1,27 @@
 var database = require("../database/config");
 
-function cadastrarLivro(titulo,autor,dtLanc,img,descricao,link,fkUsuario,genero){
-  console.log("ACESSEI A USUÁRIO MODEL REGISTRANDO USUÁRIO")
-  var instrucao = `INSERT INTO LIVRO(titulo,autor,dtLanc,img,descricao,fkUsuario,url,downloads,genero) VALUES ('${titulo}','${autor}','${dtLanc}','${img}','${descricao}',${fkUsuario},'${link}',0,'${genero}');`;
-  console.log("EXECUTANDO INSTRUÇÃO"+instrucao)
+function cadastrarLivro(titulo,autor,dtLanc,img,descricao,caminho,fkUsuario,genero){
+  console.log(caminho);
+  var instrucao = `INSERT INTO LIVRO(
+    titulo,
+    autor,
+    dtLanc,
+    img,
+    descricao,
+    caminho,
+    fkUsuario,
+    downloads,
+    genero) VALUES
+   ('${titulo}','${autor}','${dtLanc}','${img}','${descricao}','${caminho}',${fkUsuario},0,'${genero}');`;
   return database.executar(instrucao);
 }
 
 function buscarLivro(){
-console.log("Buscando livros");
 var instrucao = 'SELECT * FROM LIVRO;'
 return database.executar(instrucao)
 }
 
 function buscarLivroSelecionado(id){
-  console.log("Buscar Livro"+id);
   var instrucao = `SELECT * FROM LIVRO WHERE IDLIVRO=${id} `;
   return database.executar(instrucao)
 }
@@ -38,6 +45,8 @@ function totalDownloadsPlataforma(){
   var intrucao = 'SELECT SUM(LIVRO.DOWNLOADS) AS DOWNLOADSTOTAL FROM LIVRO;';
   return database.executar(intrucao);
 }
+
+
 module.exports =
 {
   cadastrarLivro,

@@ -2,7 +2,6 @@ var cores = ["#264653", "#2A9D8F", "E9C46A", "#F4A261", "#E76F51","#8de0a6","#1c
 function plotarGraficoBar(label, dados) {
   var labelUsuario = label;
   var dadosUsuario = dados;
-  console.log(labelUsuario, dadosUsuario);
   const data = {
     labels: labelUsuario,
     datasets: [
@@ -63,7 +62,6 @@ function dadosTopUsuario() {
         for (var i = 0; i < json.length; i++) {
           nomes.push(`${json[i].NOME} ${json[i].SOBRENOME}`);
           dados.push(json[i].QUANTIDADE);
-          console.log(nomes, dados);
         }
         plotarGraficoBar(nomes, dados);
       });
@@ -86,7 +84,6 @@ function dadosLivroGenero() {
       for (var i = 0; i < json.length; i++) {
         genero.push(json[i].GENERO);
         dados.push(json[i].QUANTIDADE);
-        console.log(genero, dados);
       }
       plotarGraficoPizza(genero, dados);
     });

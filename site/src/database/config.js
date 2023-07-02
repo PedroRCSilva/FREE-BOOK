@@ -6,7 +6,7 @@ var sqlServerConfig = {
     server: "localhost",
     database: "FREEBOOK",
     user: "root",
-    password: "3Db01194.",
+    password: "3db01194.",
     pool: {
         max: 10,
         min: 0,
@@ -32,11 +32,9 @@ function executar(instrucao) {
             sql.connect(sqlServerConfig).then(function () {
                 return sql.query(instrucao);
             }).then(function (resultados) {
-                console.log(resultados);
                 resolve(resultados.recordset);
             }).catch(function (erro) {
                 reject(erro);
-                console.log('ERRO: ', erro);
             });
             sql.on('error', function (erro) {
                 return ("ERRO NO SQL SERVER (Azure): ", erro);
@@ -51,7 +49,6 @@ function executar(instrucao) {
                 if (erro) {
                     reject(erro);
                 }
-                console.log(resultados);
                 resolve(resultados);
             });
             conexao.on('error', function (erro) {

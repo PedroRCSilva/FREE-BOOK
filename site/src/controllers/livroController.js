@@ -1,9 +1,11 @@
-var livroModel = require("../models/livroModel");
 
+const path = require("path");
+const livroModel = require("../models/livroModel");
+const fs = require("fs");
+const { json } = require("express");
 var sessoes = [];
 
 function buscarLivro(req, res) {
-  console.log("CHEGOU DADOS");
   livroModel
     .buscarLivro()
     .then((resultado) => {
@@ -15,8 +17,7 @@ function buscarLivro(req, res) {
 }
 
 function buscarLivroSelecionado(req, res) {
-  var idLivro = req.body.idServer;
-  console.log("CHEGOU DADOS");
+  var idLivro = req.params.id;
   livroModel
     .buscarLivroSelecionado(idLivro)
     .then((resultado) => {
@@ -28,15 +29,9 @@ function buscarLivroSelecionado(req, res) {
 }
 
 function cadastrarLivro(req, res) {
-  var titulo = req.body.tituloServer;
-  var autor = req.body.autorServer;
-  var dtLanc = req.body.dtLancServer;
-  var img = req.body.imgServer;
-  var descricao = req.body.descricaoServer;
-  var link = req.body.urlServer;
-  var fkUsuario = req.body.fkUsuarioServer;
-  var genero = req.body.generoServer;
-
+const {titulo,autor,dtLanc,img,descricao,fkUsuario,genero} = req.body;
+const caminho = req.file.path;
+console.log(caminho);
   livroModel
     .cadastrarLivro(
       titulo,
@@ -44,16 +39,19 @@ function cadastrarLivro(req, res) {
       dtLanc,
       img,
       descricao,
-      link,
+      caminho,
       fkUsuario,
       genero
     )
     .then((resultado) => {
-      res.json(resultado);
+      res.status(200).json(resultado);
+      
     })
     .catch((resultado) => {
       console.log("Erro ao cadastrar livro" + resultado);
+      res.status(400).send();
     });
+
 }
 
 function atualizarDownloads(req, res) {
@@ -61,7 +59,7 @@ function atualizarDownloads(req, res) {
   livroModel
     .atualizarDownloads(idLivro)
     .then((result) => {
-      console.log(result);
+      res.status(200).send();
     })
     .catch((erro) => {
       console.log(erro);
@@ -93,6 +91,26 @@ function totalDownloadsPlataforma(req,res){
   })
 }
 
+function realizarDownload(req,res){
+  const idLivro = req.params.id;
+  const requisicao = livroModel.buscarLivroSelecionado(idLivro)
+
+  requisicao.then((resposta)=>{
+    if(resposta.length>0){
+        console.log(resposta);
+        res.setHeader('Content-Disposition',`attachment;filename=${resposta[0].titulo}.pdf`)
+        res.sendFile(path.resolve(resposta[0].caminho))
+        return
+    
+    }
+    return res.status(404).json({message:"Erro: Livro não encontrado"})
+  })
+  .catch((erro)=>{
+    console.log(erro)
+    return res.status(400).send(erro.sqlMessage)
+  })
+}
+
 
 
 module.exports = {
@@ -103,4 +121,5 @@ module.exports = {
   livroTopDownloadsController,
   porcentagemLivroGeneroController,
   totalDownloadsPlataforma,
+  realizarDownload
 };

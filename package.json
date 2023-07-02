@@ -3,8 +3,12 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-      "start": "node ./site/app.js",
-      "dev": "cd site && npm run dev",
-      "postinstall": "cd site && npm install"
+        "start": "node ./site/app.js",
+        "dev": "cd site && npm run dev",
+        "postinstall": "cd site && npm install"
+    },
+    "dependencies": {
+        "fs": "^0.0.1-security",
+        "multer": "^1.4.5-lts.1"
     }
-  }
+}

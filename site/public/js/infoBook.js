@@ -8,14 +8,11 @@ nome.innerHTML =
   JSON.parse(sessionStorage.getItem("INFO_USUARIO")).sobrenome;
 var idLivro = sessionStorage.getItem("BOOK");
 
-  fetch("livro/buscarLivro", {
-    method: "POST",
+  fetch(`livro/buscarLivro/${idLivro}`, {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      idServer: idLivro,
-    }),
+    }
   })
     .then((resultado) => {
       resultado.json().then((json) => {
@@ -26,7 +23,7 @@ var idLivro = sessionStorage.getItem("BOOK");
         titulo.innerHTML = json[0].titulo;
         data.innerHTML = dataFormatada;
         inUrl.addEventListener("click",()=>{
-          window.open(json[0].url)
+          window.open(`http://localhost:3333/livro/download/${idLivro}`)
         })
         genero.innerHTML=json[0].genero
         imgLivro.src = json[0].img;

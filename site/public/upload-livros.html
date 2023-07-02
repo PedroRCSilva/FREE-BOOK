@@ -13,9 +13,7 @@
   <title>Upload Livro</title>
 </head>
 <script>
-  var infoUsuario = JSON.parse(sessionStorage.getItem('INFO_USUARIO'))
- 
- if(infoUsuario==undefined){
+ if(!sessionStorage.INFO_USUARIO){
  window.location="login-cadastro.html"
  }
    </script>
@@ -99,7 +97,7 @@
       
         <div class="campo">
           <label for="">Informe o link do PDF</label>
-          <input type="url" id="in_url">
+          <input type="file" id="in_url">
           <button class="prev">Voltar</button>
           <button class="next" onclick="cadastrarLivro()">Publicar</button>
         </div> 

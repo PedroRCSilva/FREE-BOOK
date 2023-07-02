@@ -7,16 +7,15 @@ function atualizarData(req, res) {
   metricaModel
     .atualizarDtMetrica(idUsuario, dtMetrica)
     .then((resultado) => {
-      console.log(resultado);
+      res.status(200).send()
     })
     .catch((erro) => {
-      console.log("ERRO AO ATUALIZAR A MÉTRICA" + erro);
+      res.status(400).send();
     });
 }
 
 function atualizarVisita(req, res) {
   var idUsuario = req.params.idUsuario;
-  console.log(idUsuario);
   metricaModel.atualizarVisitaMetrica(idUsuario);
 }
 
@@ -29,7 +28,6 @@ function exibirMedidas(req, res) {
 function criarMetrica(req, res) {
   var email = req.body.emailVar;
   var data = req.body.dataVar;
-  console.log("CHEGUEI NA CONTROLLER CRIAR METRICA");
   metricaModel.criarMetrica(email, data);
 }
 

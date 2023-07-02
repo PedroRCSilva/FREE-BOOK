@@ -1,5 +1,5 @@
 fetch("/livro/livros", {
-  method: "POST",
+  method: "GET",
   headers: {
     "Content-Type": "application/json",
   },

@@ -29,6 +29,7 @@ img longtext,
 url longtext,
 descricao longtext,
 downloads int,
+genero varchar(255),
 fkUsuario int, foreign key(fkUsuario) references Usuario(idUsuario),
 primary key(idLivro,fkUsuario)
 );
