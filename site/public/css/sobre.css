@@ -235,8 +235,8 @@ height: 100%;
 
 .cards{
   position: relative;
-  transition-delay: preserve-3d;
   -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   transition: 0.8s;
   display: flex;
   align-items: center;
@@ -355,6 +355,7 @@ cursor: pointer;
 }
 #switch:checked ~ .cards{
 transform: rotateY(180deg);
+display: blo;
 }
 
 
